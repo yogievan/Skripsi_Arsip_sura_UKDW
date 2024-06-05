@@ -390,7 +390,8 @@ class KepalaUnitController extends Controller
     }
 
     public function ListArsipDisposisiSuratMasuk(){
-        $disposisiSuratMasuk = disposisiSuratMasuk::orderBy('id', 'DESC')->paginate(25);
+        $penerima = Auth::user()->email;
+        $disposisiSuratMasuk = disposisiSuratMasuk::orderBy('id', 'DESC')->where('penerima', $penerima)->paginate(25);
         $date = date('D, d M Y');
 
         return view('kepala_unit.list_arsip_disposisi_surat_masuk',
@@ -401,7 +402,8 @@ class KepalaUnitController extends Controller
     }
 
     public function ListArsipDisposisiSuratKeluar(){
-        $disposisiSuratKeluar = disposisiSuratKeluar::orderBy('id', 'DESC')->paginate(25);
+        $penerima = Auth::user()->email;
+        $disposisiSuratKeluar = disposisiSuratKeluar::orderBy('id', 'DESC')->where('penerima', $penerima)->paginate(25);
         $date = date('D, d M Y');
 
         return view('kepala_unit.list_arsip_disposisi_surat_keluar',
