@@ -45,6 +45,5 @@
             {{ session('success_message') }}
         </div>
     @endif
-    
 </div>
 @endsection

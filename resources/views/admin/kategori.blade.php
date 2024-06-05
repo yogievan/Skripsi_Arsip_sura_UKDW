@@ -34,12 +34,12 @@
                                 <div class="grid grid-cols-3 gap-6">
                                     <div class="col-span-3">
                                         <div class="py-2">
-                                            <label class="font-semibold">Kategori</label>
-                                            <input name="kategori_surat" type="text" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500" placeholder="Masukkan Kategori Surat" required>
+                                            <label class="font-semibold">Kode Surat</label>
+                                            <input name="letter_code" type="text" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500" placeholder="Letter Code Kategori Surat" required>
                                         </div>
                                         <div class="py-2">
-                                            <label class="font-semibold">Deskripsi Keterangan</label>
-                                            <textarea name="deskripsi" class="block bg-white w-full h-[300px] rounded font-normal focus:ring-green-500 focus:border-green-500" required></textarea>
+                                            <label class="font-semibold">Keterangan Kategori Surat</label>
+                                            <input name="kategori_surat" type="text" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500" placeholder="Keterangan Kategori Surat" required>
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +51,6 @@
                     </div>
                 </div>
             </div>
-            <div></div>
             <div class="flex">
                 <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-e-0 rounded-s-md">
                     <i class="fas fa-search"></i>
@@ -59,6 +58,7 @@
                 <input type="text" class="rounded-none rounded-e-lg bg-white border focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm border-gray-200 p-2.5" placeholder="Cari Kategori">
             </div>
         </div>
+
         {{-- table --}}
         <div class="mt-8">
             <div class="relative overflow-x-auto border rounded">
@@ -84,20 +84,26 @@
                             @foreach ($kategori as $no => $item)
                                 <tr class="bg-white border-b">
                                     <th scope="row" class="p-2 text-center border w-[20px] font-normal text-gray-900 whitespace-nowrap">
-                                        {{ ++$no }}
+                                        {{ $item -> id }}
                                     </th>
                                     <td class="p-2 border w-[150px] text-gray-900 font-normal break-words ">
-                                        {{ $item -> kategori_surat }}
+                                        {{ $item -> letter_code }}
                                     </td>
                                     <td class="p-2 border w-auto text-gray-900 font-normal break-words ">
-                                        {{ $item -> deskripsi }}
+                                        {{ $item -> kategori_surat }}
                                     </td>
                                     <td class="flex gap-2 m-2 justify-center">
                                         <a href="/Admin/EditKategori-{{ $item -> id }}">
-                                            <button class="bg-blue-700 p-3 rounded text-white hover:bg-blue-600">Edit Kategori</button>
+                                            <button class="bg-blue-700 p-3 rounded text-white hover:bg-blue-600">
+                                                <i class="fas fa-edit"></i>
+                                                Edit
+                                            </button>
                                         </a>
                                         <a href="/Admin/HapusKategori-{{ $item -> id }}">
-                                            <button class="bg-red-500 p-3 rounded text-white hover:bg-red-400" onclick="return confirm('Anda Yakin Menghapus Kategori?')">Hapus Kategori</button>
+                                            <button class="bg-red-500 p-3 rounded text-white hover:bg-red-400" onclick="return confirm('Anda Yakin Menghapus Kategori?')">
+                                                <i class="fas fa-trash-alt"></i>
+                                                Hapus
+                                            </button>
                                         </a>
                                     </td>
                                 </tr>

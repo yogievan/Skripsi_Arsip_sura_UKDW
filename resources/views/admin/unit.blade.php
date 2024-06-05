@@ -84,10 +84,16 @@
                                 </td>
                                 <td class="flex gap-2 m-2 justify-center">
                                     <a href="/Admin/EditUnit-{{ $item -> id }}">
-                                        <button class="bg-blue-700 p-3 rounded text-white w-[100px] hover:bg-blue-600">Edit Unit</button>
+                                        <button class="bg-blue-700 p-3 rounded text-white w-[100px] hover:bg-blue-600">
+                                            <i class="fas fa-edit"></i>
+                                            Edit
+                                        </button>
                                     </a>
                                     <a href="/Admin/HapusUnit-{{ $item -> id }}">
-                                        <button class="bg-red-500 p-3 rounded text-white w-[100px] hover:bg-red-400" onclick="return confirm('Anda Yakin Menghapus Unit UKDW?')">Hapus Unit</button>
+                                        <button class="bg-red-500 p-3 rounded text-white w-[100px] hover:bg-red-400" onclick="return confirm('Anda Yakin Menghapus Unit UKDW?')">
+                                            <i class="fas fa-trash-alt"></i>
+                                            Hapus
+                                        </button>
                                     </a>
                                 </td>
                             </tr>

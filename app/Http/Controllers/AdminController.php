@@ -51,7 +51,7 @@ class AdminController extends Controller
     }
 
     public function ViewKategori(){
-        $kategori = Kategori::orderBy('id','DESC')->paginate(10);
+        $kategori = Kategori::orderBy('id','ASC')->paginate(10);
         return view('admin.kategori',
         [
             'kategori' => $kategori,
@@ -60,8 +60,8 @@ class AdminController extends Controller
 
     public function TambahKategori(Request $request){
         Kategori::create([
+            'letter_code' => $request -> letter_code,
             'kategori_surat' => $request -> kategori_surat,
-            'deskripsi' => $request -> deskripsi,
         ]);
         Alert::toast('Data kategori surat berhasil ditambahkan!','success');
         return Redirect::back();

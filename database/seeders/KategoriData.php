@@ -15,27 +15,66 @@ class KategoriData extends Seeder
     {
         $data = [
             [
-                'kategori_surat'=>'Surat Tugas/Dinas',
-                'deskripsi'=>'Surat yang digunakan untuk menugaskan Perorangan baik Dosen ataupun Staff dalam unit tertentu.',
+                'letter_code'=>'SK',
+                'kategori_surat'=>'Surat keputusan',
             ],
             [
-                'kategori_surat'=>'Surat Undangan',
-                'deskripsi'=>'Surat yang digunakan untuk memanggil atau menggundang pihak tertentu dalam suatu kegiatan',
+                'letter_code'=>'SU',
+                'kategori_surat'=>'Surat undangan',
             ],
             [
-                'kategori_surat'=>'Surat Edaran',
-                'deskripsi'=>'Surat yang digunakan untuk memberitahukan sebuah informasi atau penggumuman kepada kalangan tertentu.',
+                'letter_code'=>'SPm',
+                'kategori_surat'=>'Surat permohonan',
             ],
             [
-                'kategori_surat'=>'Surat Permohonan',
-                'deskripsi'=>'Surat yang digunakan untuk mengajukan permohonan.',
+                'letter_code'=>'SPb',
+                'kategori_surat'=>'Surat pemberitahuan',
+            ],
+            [
+                'letter_code'=>'SPp',
+                'kategori_surat'=>'Surat peminjaman',
+            ],
 
+            [
+                'letter_code'=>'SPn',
+                'kategori_surat'=>'Surat pernyataan',
             ],
             [
-                'kategori_surat'=>'Surat Peringatan',
-                'deskripsi'=>'Surat yang digunakan untuk memberikan informasi peringatan terhadap peanggaran yang dilakukan.',
+                'letter_code'=>'SM',
+                'kategori_surat'=>'Surat mandat',
             ],
-            
+            [
+                'letter_code'=>'ST',
+                'kategori_surat'=>'Surat tugas',
+            ],
+            [
+                'letter_code'=>'SKet',
+                'kategori_surat'=>'Surat keterangan',
+            ],
+            [
+                'letter_code'=>'SR',
+                'kategori_surat'=>'Surat rekomendasi',
+            ],
+            [
+                'letter_code'=>'SB',
+                'kategori_surat'=>'Surat balasan',
+            ],
+            [
+                'letter_code'=>'SPPD',
+                'kategori_surat'=>'Surat perintah perjalanan dinas',
+            ],
+            [
+                'letter_code'=>'SRT',
+                'kategori_surat'=>'Sertifikat',
+            ],
+            [
+                'letter_code'=>'PK',
+                'kategori_surat'=>'Perjanjian kerja',
+            ],
+            [
+                'letter_code'=>'SPeng',
+                'kategori_surat'=>'Surat pengantar',
+            ],
         ];
         foreach($data as $val){
             DB::table('kategori_surat')->insert($val);

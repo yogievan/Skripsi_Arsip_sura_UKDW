@@ -37,15 +37,39 @@ Route::middleware(['auth'])->group(function(){
             Route::put('/Admin/EditJabatanSubmit-{id}', [adminController::class, 'EditJabatan']);
             Route::get('/Admin/HapusJabatan-{id}', [adminController::class, 'HapusJabatan']);
         });
+        // AKTOR KEPALA UNIT
+        Route::middleware('cekRole:KepalaUnit')->group(function () {
+            Route::get('/KepalaUnit/Dashboard', [KepalaUnitController::class, 'ViewDashboard'])->name('Dashboard_kepalaunit');
+            Route::get('/KepalaUnit/ArsipSurat', [KepalaUnitController::class, 'ViewArsipSurat'])->name('ArsipSurat_kepalaunit');
+            Route::post('/KepalaUnit/TambahArsipSuratMasuk', [KepalaUnitController::class, 'ArsipSuratMasuk'])->name('ArsipSuratMasuk_kepalaunit');
+            Route::post('/KepalaUnit/TambahArsipSuratKeluar', [KepalaUnitController::class, 'ArsipSuratKeluar'])->name('ArsipSuratKeluar_kepalaunit');
+            Route::get('/KepalaUnit/DetailArsipSuratMasuk-{id}', [KepalaUnitController::class, 'DetailArsipSuratMasuk']);
+            Route::get('/KepalaUnit/DetailArsipSuratKeluar-{id}', [KepalaUnitController::class, 'DetailArsipSuratKeluar']);
+            Route::get('/KepalaUnit/ValidasiDetailArsipSuratMasuk-{id}', [KepalaUnitController::class, 'ValidasiDetailArsipSuratMasuk']);
+            Route::get('/KepalaUnit/ValidasiDetailArsipSuratKeluar-{id}', [KepalaUnitController::class, 'ValidasiDetailArsipSuratKeluar']);
+            Route::get('/KepalaUnit/BatalValidasiDetailArsipSuratMasuk-{id}', [KepalaUnitController::class, 'BatalValidasiDetailArsipSuratMasuk']);
+            Route::get('/KepalaUnit/BatalValidasiDetailArsipSuratKeluar-{id}', [KepalaUnitController::class, 'BatalValidasiDetailArsipSuratKeluar']);
+            Route::get('/KepalaUnit/ViewEditArsipSuratMasuk-{id}', [KepalaUnitController::class, 'ViewEditArsipSuratMasuk']);
+            Route::get('/KepalaUnit/ViewEditArsipSuratKeluar-{id}', [KepalaUnitController::class, 'ViewEditArsipSuratKeluar']);
+            Route::put('/KepalaUnit/EditArsipSuratMasuk-{id}', [KepalaUnitController::class, 'EditArsipSuratMasuk']);
+            Route::put('/KepalaUnit/EditArsipSuratKeluar-{id}', [KepalaUnitController::class, 'EditArsipSuratKeluar']);
+            Route::get('/KepalaUnit/HapusArsipSuratMasuk-{id}', [KepalaUnitController::class, 'HapusArsipSuratMasuk']);
+            Route::get('/KepalaUnit/HapusArsipSuratKeluar-{id}', [KepalaUnitController::class, 'HapusArsipSuratKeluar']);
+            Route::get('/KepalaUnit/ListArsipSuratMasuk', [KepalaUnitController::class, 'ListArsipSuratMasuk'])->name('ListArsipSuratMasuk_kepalaunit');
+            Route::get('/KepalaUnit/ListArsipSuratKeluar', [KepalaUnitController::class, 'ListArsipSuratKeluar'])->name('ListArsipSuratKeluar_kepalaunit');
+            Route::post('/KepalaUnit/TambahArsipDisposisiSuratMasuk', [KepalaUnitController::class, 'DisposisiSuratMasuk'])->name('DisposisiArsipSuratMasuk_kepalaunit');
+            Route::post('/KepalaUnit/TambahArsipDisposisiSuratKeluar', [KepalaUnitController::class, 'DisposisiSuratKeluar'])->name('DisposisiArsipSuratKeluar_kepalaunit');
+            Route::get('/KepalaUnit/ListArsipDisposisiSuratMasuk', [KepalaUnitController::class, 'ListArsipDisposisiSuratMasuk'])->name('ListArsipDisposisiSuratMasuk_kepalaunit');
+            Route::get('/KepalaUnit/ListArsipDisposisiSuratKeluar', [KepalaUnitController::class, 'ListArsipDisposisiSuratKeluar'])->name('ListArsipDisposisiSuratKeluar_kepalaunit');
+            Route::get('/KepalaUnit/DetailArsipDisposisiSuratMasuk-{id}-{id_surat_masuk}', [KepalaUnitController::class, 'DetailArsipDisposisiSuratMasuk'])->name('DetailArsipDisposisiSuratMasuk_kepalaunit');
+            Route::get('/KepalaUnit/DetailArsipDisposisiSuratKeluar-{id}-{id_surat_keluar}', [KepalaUnitController::class, 'DetailArsipDisposisiSuratKeluar'])->name('DetailArsipDisposisiSuratKeluar_kepalaunit');
+            Route::get('/KepalaUnit/TindakLanjutDetailArsipDisposisiSuratMasuk-{id}', [KepalaUnitController::class, 'TindakLanjutDetailArsipDisposisiSuratMasuk']);
+            Route::get('/KepalaUnit/TindakLanjutDetailArsipDisposisiSuratKeluar-{id}', [KepalaUnitController::class, 'TindakLanjutDetailArsipDisposisiSuratKeluar']);
+        });
 
         // AKTOR SEKRETARIATAN
         Route::middleware('cekRole:Sekretariat')->group(function () {
             Route::get('/Sekretariat/Dashboard', [SekretariatController::class, 'ViewDashboard'])->name('Dashboard_sekretariat');
-        });
-
-        // AKTOR KEPALA UNIT
-        Route::middleware('cekRole:KepalaUnit')->group(function () {
-            Route::get('/KepalaUnit/Dashboard', [KepalaUnitController::class, 'ViewDashboard'])->name('Dashboard_kepalaunit');
         });
 
         // AKTOR DOSEN STAFF

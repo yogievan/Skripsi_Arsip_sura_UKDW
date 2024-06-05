@@ -13,7 +13,20 @@ return new class extends Migration
     {
         Schema::create('surat_masuk', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_kategori_surat');
+            $table->foreignId('id_unit');
+            $table->string('pengirim')->nullable();
+            $table->string('penerima')->nullable();
+            $table->string('subjek');
+            $table->longText('catatan')->nullable();
+            $table->string('lampiran_1')->nullable();
+            $table->string('lampiran_2')->nullable();
+            $table->string('lampiran_3')->nullable();
+            $table->string('status_surat')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_kategori_surat')->references('id')->on('kategori_surat')->onDelete('cascade');
+            $table->foreign('id_unit')->references('id')->on('unit')->onDelete('cascade');
         });
     }
 

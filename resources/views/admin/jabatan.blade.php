@@ -84,10 +84,16 @@
                                 </td>
                                 <td class="flex gap-2 m-2 justify-center">
                                     <a href="/Admin/EditJabatan-{{ $item -> id }}">
-                                        <button class="bg-blue-700 p-3 rounded w-[150px] text-white hover:bg-blue-600">Edit Jabatan</button>
+                                        <button class="bg-blue-700 p-3 rounded w-[150px] text-white hover:bg-blue-600">
+                                            <i class="fas fa-edit"></i>
+                                            Edit
+                                        </button>
                                     </a>
                                     <a href="/Admin/HapusJabatan-{{ $item -> id }}">
-                                        <button class="bg-red-500 p-3 rounded w-[150px] text-white hover:bg-red-400" onclick="return confirm('Anda Yakin Menghapus Jabatan Kerja?')">Hapus Jabatan</button>
+                                        <button class="bg-red-500 p-3 rounded w-[150px] text-white hover:bg-red-400" onclick="return confirm('Anda Yakin Menghapus Jabatan Kerja?')">
+                                            <i class="fas fa-trash-alt"></i>
+                                            Hapus
+                                        </button>
                                     </a>
                                 </td>
                             </tr>
