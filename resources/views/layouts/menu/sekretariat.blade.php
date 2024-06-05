@@ -6,35 +6,35 @@
 </li>
 <hr>
 <li class="my-2">
-    <a href="" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
+    <a href="{{ route('ArsipSurat_sekretariat') }}" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
         <i class="fa-solid fa-file-circle-plus my-auto"></i>
         <p>Arsip Surat</p>
     </a>
 </li>
 <hr>
 <li class="my-2">
-    <a href="" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
+    <a href="{{ route('ListArsipSuratMasuk_sekretariat') }}" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
         <i class="fas fa-archive my-auto"></i> 
         <p>Arsip Surat Masuk</p>
     </a>
 </li>
 <hr>
 <li class="my-2">
-    <a href="" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
+    <a href="{{ route('ListArsipSuratKeluar_sekretariat') }}" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
         <i class="fas fa-archive my-auto"></i> 
         <p>Arsip Surat Keluar</p>
     </a>
 </li>
 <hr>
 <li class="my-2">
-    <a href="" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
+    <a href="{{ route('ListArsipDisposisiSuratMasuk_sekretariat') }}" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
         <i class="fas fa-file-archive my-auto"></i> 
         <p>Arsip Disposisi Surat Masuk</p>
     </a>
 </li>
 <hr>
 <li class="my-2">
-    <a href="" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
+    <a href="{{ route('ListArsipDisposisiSuratKeluar_sekretariat') }}" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#265751]">
         <i class="fas fa-file-archive my-auto"></i>
         <p>Arsip Disposisi Surat Keluar</p>
     </a>

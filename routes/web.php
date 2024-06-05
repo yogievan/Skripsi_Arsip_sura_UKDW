@@ -70,11 +70,40 @@ Route::middleware(['auth'])->group(function(){
         // AKTOR SEKRETARIATAN
         Route::middleware('cekRole:Sekretariat')->group(function () {
             Route::get('/Sekretariat/Dashboard', [SekretariatController::class, 'ViewDashboard'])->name('Dashboard_sekretariat');
+            Route::get('/Sekretariat/ArsipSurat', [SekretariatController::class, 'ViewArsipSurat'])->name('ArsipSurat_sekretariat');
+            Route::post('/Sekretariat/TambahArsipSuratMasuk', [SekretariatController::class, 'ArsipSuratMasuk'])->name('ArsipSuratMasuk_sekretariat');
+            Route::post('/Sekretariat/TambahArsipSuratKeluar', [SekretariatController::class, 'ArsipSuratKeluar'])->name('ArsipSuratKeluar_sekretariat');
+            Route::get('/Sekretariat/DetailArsipSuratMasuk-{id}', [SekretariatController::class, 'DetailArsipSuratMasuk']);
+            Route::get('/Sekretariat/DetailArsipSuratKeluar-{id}', [SekretariatController::class, 'DetailArsipSuratKeluar']);
+            Route::get('/Sekretariat/ViewEditArsipSuratMasuk-{id}', [SekretariatController::class, 'ViewEditArsipSuratMasuk']);
+            Route::get('/Sekretariat/ViewEditArsipSuratKeluar-{id}', [SekretariatController::class, 'ViewEditArsipSuratKeluar']);
+            Route::put('/Sekretariat/EditArsipSuratMasuk-{id}', [SekretariatController::class, 'EditArsipSuratMasuk']);
+            Route::put('/Sekretariat/EditArsipSuratKeluar-{id}', [SekretariatController::class, 'EditArsipSuratKeluar']);
+            Route::get('/Sekretariat/HapusArsipSuratMasuk-{id}', [SekretariatController::class, 'HapusArsipSuratMasuk']);
+            Route::get('/Sekretariat/HapusArsipSuratKeluar-{id}', [SekretariatController::class, 'HapusArsipSuratKeluar']);
+            Route::get('/Sekretariat/ListArsipSuratMasuk', [SekretariatController::class, 'ListArsipSuratMasuk'])->name('ListArsipSuratMasuk_sekretariat');
+            Route::get('/Sekretariat/ListArsipSuratKeluar', [SekretariatController::class, 'ListArsipSuratKeluar'])->name('ListArsipSuratKeluar_sekretariat');
+            Route::post('/Sekretariat/TambahArsipDisposisiSuratMasuk', [SekretariatController::class, 'DisposisiSuratMasuk'])->name('DisposisiArsipSuratMasuk_sekretariat');
+            Route::post('/Sekretariat/TambahArsipDisposisiSuratKeluar', [SekretariatController::class, 'DisposisiSuratKeluar'])->name('DisposisiArsipSuratKeluar_sekretariat');
+            Route::get('/Sekretariat/ListArsipDisposisiSuratMasuk', [SekretariatController::class, 'ListArsipDisposisiSuratMasuk'])->name('ListArsipDisposisiSuratMasuk_sekretariat');
+            Route::get('/Sekretariat/ListArsipDisposisiSuratKeluar', [SekretariatController::class, 'ListArsipDisposisiSuratKeluar'])->name('ListArsipDisposisiSuratKeluar_sekretariat');
+            Route::get('/Sekretariat/DetailArsipDisposisiSuratMasuk-{id}-{id_surat_masuk}', [SekretariatController::class, 'DetailArsipDisposisiSuratMasuk'])->name('DetailArsipDisposisiSuratMasuk_sekretariat');
+            Route::get('/Sekretariat/DetailArsipDisposisiSuratKeluar-{id}-{id_surat_keluar}', [SekretariatController::class, 'DetailArsipDisposisiSuratKeluar'])->name('DetailArsipDisposisiSuratKeluar_sekretariat');
+            Route::get('/Sekretariat/TindakLanjutDetailArsipDisposisiSuratMasuk-{id}', [SekretariatController::class, 'TindakLanjutDetailArsipDisposisiSuratMasuk']);
+            Route::get('/Sekretariat/TindakLanjutDetailArsipDisposisiSuratKeluar-{id}', [SekretariatController::class, 'TindakLanjutDetailArsipDisposisiSuratKeluar']);
         });
 
         // AKTOR DOSEN STAFF
         Route::middleware('cekRole:DosenStaff')->group(function () {
             Route::get('/DosenStaff/Dashboard', [DosenStaffController::class, 'ViewDashboard'])->name('Dashboard_dosenstaff');
+            Route::get('/DosenStaff/ListArsipSuratMasuk', [DosenStaffController::class, 'ListArsipSuratMasuk'])->name('ListArsipSuratMasuk_dosenstaff');
+            Route::get('/DosenStaff/ListArsipSuratKeluar', [DosenStaffController::class, 'ListArsipSuratKeluar'])->name('ListArsipSuratKeluar_dosenstaff');
+            Route::get('/DosenStaff/DetailArsipSuratMasuk-{id}', [DosenStaffController::class, 'DetailArsipSuratMasuk']);
+            Route::get('/DosenStaff/DetailArsipSuratKeluar-{id}', [DosenStaffController::class, 'DetailArsipSuratKeluar']);
+            Route::get('/DosenStaff/ListArsipDisposisiSuratMasuk', [DosenStaffController::class, 'ListArsipDisposisiSuratMasuk'])->name('ListArsipDisposisiSuratMasuk_dosenstaff');
+            Route::get('/DosenStaff/ListArsipDisposisiSuratKeluar', [DosenStaffController::class, 'ListArsipDisposisiSuratKeluar'])->name('ListArsipDisposisiSuratKeluar_dosenstaff');
+            Route::get('/DosenStaff/DetailArsipDisposisiSuratMasuk-{id}-{id_surat_masuk}', [DosenStaffController::class, 'DetailArsipDisposisiSuratMasuk'])->name('DetailArsipDisposisiSuratMasuk_dosenstaff');
+            Route::get('/DosenStaff/DetailArsipDisposisiSuratKeluar-{id}-{id_surat_keluar}', [DosenStaffController::class, 'DetailArsipDisposisiSuratKeluar'])->name('DetailArsipDisposisiSuratKeluar_dosenstaff');
         });
 
         // Logout
