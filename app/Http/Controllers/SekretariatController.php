@@ -328,8 +328,7 @@ class SekretariatController extends Controller
     }
 
     public function ListArsipDisposisiSuratMasuk(){
-        $penerima = Auth::user()->email;
-        $disposisiSuratMasuk = disposisiSuratMasuk::orderBy('id', 'DESC')->where('penerima', $penerima)->paginate(25);
+        $disposisiSuratMasuk = disposisiSuratMasuk::orderBy('id', 'DESC')->paginate(25);
         $date = date('D, d M Y');
 
         return view('sekretariat.list_arsip_disposisi_surat_masuk',
@@ -340,8 +339,7 @@ class SekretariatController extends Controller
     }
 
     public function ListArsipDisposisiSuratKeluar(){
-        $penerima = Auth::user()->email;
-        $disposisiSuratKeluar = disposisiSuratKeluar::orderBy('id', 'DESC')->where('penerima', $penerima)->paginate(25);
+        $disposisiSuratKeluar = disposisiSuratKeluar::orderBy('id', 'DESC')->paginate(25);
         $date = date('D, d M Y');
 
         return view('sekretariat.list_arsip_disposisi_surat_keluar',
@@ -375,8 +373,8 @@ class SekretariatController extends Controller
         }else{
             $lampiran_3 = "";
         }
-
-        if($disposisiSuratMasuk -> status_disposisi == "Surat Telah Ditindak Lanjut"){
+        $penerima = Auth::user()->email;
+        if(($disposisiSuratMasuk -> status_disposisi == "Surat Telah Ditindak Lanjut") || ($disposisiSuratMasuk->penerima != $penerima)){
             $validasi = "hidden";
         } else{
             $validasi = "";
@@ -422,7 +420,8 @@ class SekretariatController extends Controller
             $lampiran_3 = "";
         }
 
-        if($disposisiSuratKeluar -> status_disposisi == "Surat Telah Ditindak Lanjut"){
+        $penerima = Auth::user()->email;
+        if(($disposisiSuratKeluar -> status_disposisi == "Surat Telah Ditindak Lanjut") || ($disposisiSuratKeluar->penerima != $penerima)){
             $validasi = "hidden";
         } else{
             $validasi = "";
@@ -459,5 +458,39 @@ class SekretariatController extends Controller
         $disposisiSuratKeluar -> save();
         Alert::toast('Surat Berhasil Ditindak Lanjut!','success');
         return Redirect::back(); 
+    }
+
+    public function FilterSuratMasuk(Request $request){
+        $filter_surat_masuk = $request->filter_surat_masuk;
+
+        $suratMasuk = SuratMasuk::whereDate('created_at', $filter_surat_masuk)->get();
+        return view('sekretariat.list_arsip_surat_masuk_filter', compact('suratMasuk'),[
+            'suratMasuk' => $suratMasuk,
+        ]);
+    }
+    public function FilterSuratKeluar(Request $request){
+        $filter_surat_keluar = $request->filter_surat_keluar;
+
+        $suratKeluar = SuratKeluar::whereDate('created_at', $filter_surat_keluar)->get();
+        return view('sekretariat.list_arsip_surat_keluar_filter', compact('suratKeluar'),[
+            'suratMasuk' => $suratKeluar,
+        ]);
+    }
+
+    public function FilterDisposisiSuratMasuk(Request $request){
+        $filter_disposisi_surat_masuk = $request->filter_disposisi_surat_masuk;
+
+        $disposisiSuratMasuk = disposisiSuratMasuk::whereDate('created_at', $filter_disposisi_surat_masuk)->get();
+        return view('sekretariat.list_arsip_disposisi_surat_masuk_filter', compact('disposisiSuratMasuk'),[
+            'disposisiSuratMasuk' => $disposisiSuratMasuk,
+        ]);
+    }
+    public function FilterDisposisiSuratKeluar(Request $request){
+        $filter_disposisi_surat_keluar = $request->filter_disposisi_surat_keluar;
+
+        $disposisiSuratKeluar = disposisiSuratKeluar::whereDate('created_at', $filter_disposisi_surat_keluar)->get();
+        return view('sekretariat.list_arsip_disposisi_surat_keluar_filter', compact('disposisiSuratKeluar'),[
+            'disposisiSuratKeluar' => $disposisiSuratKeluar,
+        ]);
     }
 }

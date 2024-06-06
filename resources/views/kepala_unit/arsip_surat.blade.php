@@ -200,6 +200,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if ($suratMasuk->count() >0)
                     @foreach ($suratMasuk as $no => $item)
                     <tr class="border">
                         <td scope="row" class="p-2 text-center border w-[20px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -240,6 +241,11 @@
                         </td>
                     </tr>
                     @endforeach
+                    @else
+                    <tr class="border">
+                        <td colspan="6" class="text-center p-2">No Record Data Surat Masuk</td>
+                    </tr>
+                    @endif
                 </tbody>
             </table>
             <div class="my-auto ml-auto">
@@ -279,49 +285,55 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($suratKeluar as $no => $item)
+                   @if ($suratKeluar->count() >0)
+                   @foreach ($suratKeluar as $no => $item)
+                   <tr class="border">
+                       <td scope="row" class="p-2 text-center border w-[20px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                           {{ ++$no}}
+                       </td>
+                       <td class="p-2 text-center border w-[100px] break-words">
+                           {{ ($item -> created_at)->format('D, d M Y') }}
+                       </td>
+                       <td class="p-2 text-center border w-[100px] break-words">
+                           {{ $item -> kode_surat }}
+                       </td>
+                       <td class="p-2 border w-[300px] break-words">
+                           {{ $item -> subjek }} 
+                       </td>
+                       <td class="p-2 text-center border w-[150px] break-words">
+                           {{ $item -> lampiran_1 }} <br>
+                           {{ $item -> lampiran_2 }} <br>
+                           {{ $item -> lampiran_3 }}
+                       </td>
+                       <td class="p-2 text-center border w-[150px]">
+                           @php
+                               if ( $item -> status_surat == 'Surat Tervalidasi Kepala Unit') {
+                                   echo "<p> $item->status_surat </p>";
+                               }else {
+                                   echo "<p> $item->status_surat </p>";
+                               }
+                           @endphp
+                       </td>
+                       <td class="flex gap-2 justify-center m-2 py-4 w-auto">
+                           <a href="/KepalaUnit/DetailArsipSuratKeluar-{{ $item -> id }}">
+                               <button class="w-[100px] bg-blue-700 p-3 rounded text-white hover:bg-blue-600">Detail Surat</button>
+                           </a>
+                           <a href="/KepalaUnit/ViewEditArsipSuratKeluar-{{ $item -> id }}">
+                               <button class="w-[100px] bg-yellow-400 p-3 rounded text-white hover:bg-yellow-300">Edit Surat</button>
+                           </a>
+                           <a href="/KepalaUnit/HapusArsipSuratKeluar-{{ $item -> id }}">
+                               <button class="w-[50px] bg-red-600 p-3 rounded text-white hover:bg-red-500" onclick="return confirm('Apakah Surat akan dihapus?')">
+                                   <i class="fas fa-trash-alt text-white"></i>
+                               </button>
+                           </a>
+                       </td>
+                   </tr>
+                   @endforeach
+                   @else
                     <tr class="border">
-                        <td scope="row" class="p-2 text-center border w-[20px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ ++$no}}
-                        </td>
-                        <td class="p-2 text-center border w-[100px] break-words">
-                            {{ ($item -> created_at)->format('D, d M Y') }}
-                        </td>
-                        <td class="p-2 text-center border w-[100px] break-words">
-                            {{ $item -> kode_surat }}
-                        </td>
-                        <td class="p-2 border w-[300px] break-words">
-                            {{ $item -> subjek }} 
-                        </td>
-                        <td class="p-2 text-center border w-[150px] break-words">
-                            {{ $item -> lampiran_1 }} <br>
-                            {{ $item -> lampiran_2 }} <br>
-                            {{ $item -> lampiran_3 }}
-                        </td>
-                        <td class="p-2 text-center border w-[150px]">
-                            @php
-                                if ( $item -> status_surat == 'Surat Tervalidasi Kepala Unit') {
-                                    echo "<p> $item->status_surat </p>";
-                                }else {
-                                    echo "<p> $item->status_surat </p>";
-                                }
-                            @endphp
-                        </td>
-                        <td class="flex gap-2 justify-center m-2 py-4 w-auto">
-                            <a href="/KepalaUnit/DetailArsipSuratKeluar-{{ $item -> id }}">
-                                <button class="w-[100px] bg-blue-700 p-3 rounded text-white hover:bg-blue-600">Detail Surat</button>
-                            </a>
-                            <a href="/KepalaUnit/ViewEditArsipSuratKeluar-{{ $item -> id }}">
-                                <button class="w-[100px] bg-yellow-400 p-3 rounded text-white hover:bg-yellow-300">Edit Surat</button>
-                            </a>
-                            <a href="/KepalaUnit/HapusArsipSuratKeluar-{{ $item -> id }}">
-                                <button class="w-[50px] bg-red-600 p-3 rounded text-white hover:bg-red-500" onclick="return confirm('Apakah Surat akan dihapus?')">
-                                    <i class="fas fa-trash-alt text-white"></i>
-                                </button>
-                            </a>
-                        </td>
+                        <td colspan="7" class="text-center p-2">No Record Data Surat Keluar</td>
                     </tr>
-                    @endforeach
+                   @endif
                 </tbody>
             </table>
             <div class="my-auto ml-auto">

@@ -255,4 +255,42 @@ class DosenStaffController extends Controller
         Alert::toast('Surat Berhasil Ditindak Lanjut!','success');
         return Redirect::back(); 
     }
+
+    public function FilterSuratMasuk(Request $request){
+        $filter_surat_masuk = $request->filter_surat_masuk;
+        $penerima = Auth::user()->email;
+        
+        $suratMasuk = SuratMasuk::whereDate('created_at', $filter_surat_masuk)->where('penerima', $penerima)->get();
+        return view('dosen_staff.list_arsip_surat_masuk_filter', compact('suratMasuk'),[
+            'suratMasuk' => $suratMasuk,
+        ]);
+    }
+    public function FilterSuratKeluar(Request $request){
+        $filter_surat_keluar = $request->filter_surat_keluar;
+        $penerima = Auth::user()->email;
+
+        $suratKeluar = SuratKeluar::whereDate('created_at', $filter_surat_keluar)->where('penerima', $penerima)->get();
+        return view('dosen_staff.list_arsip_surat_keluar_filter', compact('suratKeluar'),[
+            'suratMasuk' => $suratKeluar,
+        ]);
+    }
+
+    public function FilterDisposisiSuratMasuk(Request $request){
+        $filter_disposisi_surat_masuk = $request->filter_disposisi_surat_masuk;
+        $penerima = Auth::user()->email;
+
+        $disposisiSuratMasuk = disposisiSuratMasuk::whereDate('created_at', $filter_disposisi_surat_masuk)->where('penerima', $penerima)->get();
+        return view('dosen_staff.list_arsip_disposisi_surat_masuk_filter', compact('disposisiSuratMasuk'),[
+            'disposisiSuratMasuk' => $disposisiSuratMasuk,
+        ]);
+    }
+    public function FilterDisposisiSuratKeluar(Request $request){
+        $filter_disposisi_surat_keluar = $request->filter_disposisi_surat_keluar;
+        $penerima = Auth::user()->email;
+
+        $disposisiSuratKeluar = disposisiSuratKeluar::whereDate('created_at', $filter_disposisi_surat_keluar)->where('penerima', $penerima)->get();
+        return view('dosen_staff.list_arsip_disposisi_surat_keluar_filter', compact('disposisiSuratKeluar'),[
+            'disposisiSuratKeluar' => $disposisiSuratKeluar,
+        ]);
+    }
 }

@@ -65,6 +65,11 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/KepalaUnit/DetailArsipDisposisiSuratKeluar-{id}-{id_surat_keluar}', [KepalaUnitController::class, 'DetailArsipDisposisiSuratKeluar'])->name('DetailArsipDisposisiSuratKeluar_kepalaunit');
             Route::get('/KepalaUnit/TindakLanjutDetailArsipDisposisiSuratMasuk-{id}', [KepalaUnitController::class, 'TindakLanjutDetailArsipDisposisiSuratMasuk']);
             Route::get('/KepalaUnit/TindakLanjutDetailArsipDisposisiSuratKeluar-{id}', [KepalaUnitController::class, 'TindakLanjutDetailArsipDisposisiSuratKeluar']);
+
+            Route::get('/KepalaUnit/FilterSuratMasuk', [KepalaUnitController::class, 'FilterSuratMasuk'])->name('FilterSuratMasuk_kepalaunit');
+            Route::get('/KepalaUnit/FilterSuratKeluar', [KepalaUnitController::class, 'FilterSuratKeluar'])->name('FilterSuratKeluar_kepalaunit');
+            Route::get('/KepalaUnit/FilterDisposisiSuratMasuk', [KepalaUnitController::class, 'FilterDisposisiSuratMasuk'])->name('FilterDisposisiSuratMasuk_kepalaunit');
+            Route::get('/KepalaUnit/FilterDisposisiSuratKeluar', [KepalaUnitController::class, 'FilterDisposisiSuratKeluar'])->name('FilterDisposisiSuratKeluar_kepalaunit');
         });
 
         // AKTOR SEKRETARIATAN
@@ -91,6 +96,12 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/Sekretariat/DetailArsipDisposisiSuratKeluar-{id}-{id_surat_keluar}', [SekretariatController::class, 'DetailArsipDisposisiSuratKeluar'])->name('DetailArsipDisposisiSuratKeluar_sekretariat');
             Route::get('/Sekretariat/TindakLanjutDetailArsipDisposisiSuratMasuk-{id}', [SekretariatController::class, 'TindakLanjutDetailArsipDisposisiSuratMasuk']);
             Route::get('/Sekretariat/TindakLanjutDetailArsipDisposisiSuratKeluar-{id}', [SekretariatController::class, 'TindakLanjutDetailArsipDisposisiSuratKeluar']);
+
+
+            Route::get('/Sekretariat/FilterSuratMasuk', [SekretariatController::class, 'FilterSuratMasuk'])->name('FilterSuratMasuk_sekretariat');
+            Route::get('/Sekretariat/FilterSuratKeluar', [SekretariatController::class, 'FilterSuratKeluar'])->name('FilterSuratKeluar_sekretariat');
+            Route::get('/Sekretariat/FilterDisposisiSuratMasuk', [SekretariatController::class, 'FilterDisposisiSuratMasuk'])->name('FilterDisposisiSuratMasuk_sekretariat');
+            Route::get('/Sekretariat/FilterDisposisiSuratKeluar', [SekretariatController::class, 'FilterDisposisiSuratKeluar'])->name('FilterDisposisiSuratKeluar_sekretariat');
         });
 
         // AKTOR DOSEN STAFF
@@ -104,6 +115,11 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/DosenStaff/ListArsipDisposisiSuratKeluar', [DosenStaffController::class, 'ListArsipDisposisiSuratKeluar'])->name('ListArsipDisposisiSuratKeluar_dosenstaff');
             Route::get('/DosenStaff/DetailArsipDisposisiSuratMasuk-{id}-{id_surat_masuk}', [DosenStaffController::class, 'DetailArsipDisposisiSuratMasuk'])->name('DetailArsipDisposisiSuratMasuk_dosenstaff');
             Route::get('/DosenStaff/DetailArsipDisposisiSuratKeluar-{id}-{id_surat_keluar}', [DosenStaffController::class, 'DetailArsipDisposisiSuratKeluar'])->name('DetailArsipDisposisiSuratKeluar_dosenstaff');
+
+            Route::get('/DosenStaff/FilterSuratMasuk', [DosenStaffController::class, 'FilterSuratMasuk'])->name('FilterSuratMasuk_dosenstaff');
+            Route::get('/DosenStaff/FilterSuratKeluar', [DosenStaffController::class, 'FilterSuratKeluar'])->name('FilterSuratKeluar_dosenstaff');
+            Route::get('/DosenStaff/FilterDisposisiSuratMasuk', [DosenStaffController::class, 'FilterDisposisiSuratMasuk'])->name('FilterDisposisiSuratMasuk_dosenstaff');
+            Route::get('/DosenStaff/FilterDisposisiSuratKeluar', [DosenStaffController::class, 'FilterDisposisiSuratKeluar'])->name('FilterDisposisiSuratKeluar_dosenstaff');
         });
 
         // Logout

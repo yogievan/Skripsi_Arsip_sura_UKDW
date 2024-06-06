@@ -6,10 +6,10 @@
 @section('content_tittle', 'Kategori Surat')
 @section('content')
     <div>
-        <div class="grid grid-cols-3 gap-4">
+        <div class="flex gap-4 mt-3">
             <div>
                 {{-- Tambah kategori --}}
-                <button data-modal-target="tambah_kategori" data-modal-toggle="tambah_kategori" class="bg-[#006B3F] p-3 rounded text-white font-semibold mt-3 hover:bg-[#018951]">Tambah Kategori Surat</button>
+                <button data-modal-target="tambah_kategori" data-modal-toggle="tambah_kategori" class="bg-[#006B3F] p-3 rounded text-white font-semibold hover:bg-[#018951]">Tambah Kategori Surat</button>
 
                 {{-- Modal/ jendela Tambah kategori --}}
                 <div id="tambah_kategori" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -51,11 +51,17 @@
                     </div>
                 </div>
             </div>
-            <div class="flex">
-                <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-e-0 rounded-s-md">
-                    <i class="fas fa-search"></i>
-                </span>
-                <input type="text" class="rounded-none rounded-e-lg bg-white border focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm border-gray-200 p-2.5" placeholder="Cari Kategori">
+            <div class="ml-auto">
+                <form action="#">
+                    @csrf
+                    <div class="flex h-[50px] w-[600px] ml-auto">
+                        <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-e-0 rounded-s-md">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" class="rounded-none rounded-e-lg bg-white border focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm border-gray-200 p-2.5" placeholder="Cari Kategori Surat">
+                        <button class="bg-[#006B3F] p-3 rounded-md text-white ml-2 w-[100px] font-semibold">Cari</button>
+                    </div>
+                </form>
             </div>
         </div>
 

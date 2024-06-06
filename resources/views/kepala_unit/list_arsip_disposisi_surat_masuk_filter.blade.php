@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('web_title', 'Arsip Disposisi Surat Masuk')
 @section('menu')
-    @include('layouts.menu.sekretariat')
+    @include('layouts.menu.kepala_unit')
 @endsection
 @section('content_tittle', 'Arsip Disposisi Surat Masuk')
 @section('content')
 <div>
     <div>
-        <form action="{{route('FilterDisposisiSuratMasuk_sekretariat')}}">
+        <form action="{{route('FilterDisposisiSuratMasuk_kepalaunit')}}">
             @csrf
             <div class="flex w-[600px] ml-auto gap-1">
                 <input type="date" name="filter_disposisi_surat_masuk" class="rounded-md bg-white border-green-500 focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -15,21 +15,11 @@
             </div>
         </form>
     </div>
-
-    <div>
-        <button type="submit" name="deleteAll" class="flex gap-3 bg-red-600 p-3 rounded text-white hover:bg-red-500">
-            <i class="fas fa-trash-alt text-white m-auto"></i>
-            <p>Hapus Surat Masuk</p>
-        </button>
-    </div>
     <div class="mt-8">
         <div class="relative overflow-x-auto border rounded">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
-                        <th scope="col" class="p-2 text-center border w-[40px]">
-                            <input type="checkbox" id="checkboxesMain" class="rounded">
-                        </th>
                         <th scope="col" class="p-2 text-center border w-[20px]">
                             No
                         </th>
@@ -60,9 +50,6 @@
                     @if ($disposisiSuratMasuk->count() >0)
                     @foreach ($disposisiSuratMasuk as $no => $item)
                     <tr class="border">
-                        <td scope="col" class="p-2 text-center border w-[40px]">
-                            <input type="checkbox" class="checkbox rounded">
-                        </td>
                         <td scope="row" class="p-2 text-center border w-[20px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ ++$no}}
                         </td>
@@ -93,7 +80,7 @@
                             @endphp
                         </td>
                         <td class="flex gap-2 justify-center m-2 py-4 w-auto">
-                            <a href="/Sekretariat/DetailArsipDisposisiSuratMasuk-{{ $item -> id }}-{{ $item -> id_surat_masuk }}">
+                            <a href="/KepalaUnit/DetailArsipDisposisiSuratMasuk-{{ $item -> id }}-{{ $item -> id_surat_masuk }}">
                                 <button class="w-full bg-blue-700 p-3 rounded text-white hover:bg-blue-600">Detail Surat Disposisi</button>
                             </a>
                         </td>
@@ -106,9 +93,6 @@
                     @endif
                 </tbody>
             </table>
-            <div class="my-auto ml-auto">
-                {{ $disposisiSuratMasuk->links() }}
-            </div>
         </div>
     </div>
 </div>

@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('web_title', 'Arsip Surat Masuk')
 @section('menu')
-    @include('layouts.menu.kepala_unit')
+    @include('layouts.menu.dosen_staff')
 @endsection
 @section('content_tittle', 'Arsip Surat Masuk')
 @section('content')
 <div>
     <div>
-        <form action="{{route('FilterSuratMasuk_kepalaunit')}}">
+        <form action="{{route('FilterSuratMasuk_dosenstaff')}}">
             @csrf
             <div class="flex w-[600px] ml-auto gap-1">
                 <input type="date" name="filter_surat_masuk" class="rounded-md bg-white border-green-500 focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -68,22 +68,19 @@
                             @endphp
                         </td>
                         <td class="flex gap-2 justify-center m-2 py-4 w-auto">
-                            <a href="/KepalaUnit/DetailArsipSuratMasuk-{{ $item -> id }}">
+                            <a href="/DosenStaff/DetailArsipSuratMasuk-{{ $item -> id }}">
                                 <button class="w-[100px] bg-blue-700 p-3 rounded text-white hover:bg-blue-600">Detail Surat</button>
                             </a>
                         </td>
                     </tr>
                     @endforeach
                     @else
-                    <tr class="border">
-                        <td colspan="6" class="text-center p-2">No Record Data Surat Masuk</td>
-                    </tr>
+                        <tr class="border">
+                            <td colspan="6" class="text-center p-2">No Record Data Surat Masuk</td>
+                        </tr>
                     @endif
                 </tbody>
             </table>
-            <div class="my-auto ml-auto">
-                {{ $suratMasuk->links() }}
-            </div>
         </div>
     </div>
 </div>

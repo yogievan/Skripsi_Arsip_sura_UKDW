@@ -106,9 +106,6 @@
                     @endif
                 </tbody>
             </table>
-            <div class="my-auto ml-auto">
-                {{ $disposisiSuratMasuk->links() }}
-            </div>
         </div>
     </div>
 </div>
