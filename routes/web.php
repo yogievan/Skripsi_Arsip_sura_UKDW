@@ -36,6 +36,11 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/Admin/EditJabatan-{id}', [adminController::class, 'ViewEditJabatan']);
             Route::put('/Admin/EditJabatanSubmit-{id}', [adminController::class, 'EditJabatan']);
             Route::get('/Admin/HapusJabatan-{id}', [adminController::class, 'HapusJabatan']);
+
+            Route::get('/Admin/FilterPengguna', [adminController::class, 'FilterPengguna'])->name('FilterPengguna_admin');
+            Route::get('/Admin/FilterKategoriSurat', [adminController::class, 'FilterKategoriSurat'])->name('FilterKategoriSurat_admin');
+            Route::get('/Admin/FilterUnit', [adminController::class, 'FilterUnit'])->name('FilterUnit_admin');
+            Route::get('/Admin/FilterJabatan', [adminController::class, 'FilterJabatan'])->name('FilterJabatan_admin');
         });
         // AKTOR KEPALA UNIT
         Route::middleware('cekRole:KepalaUnit')->group(function () {
@@ -102,6 +107,11 @@ Route::middleware(['auth'])->group(function(){
             Route::get('/Sekretariat/FilterSuratKeluar', [SekretariatController::class, 'FilterSuratKeluar'])->name('FilterSuratKeluar_sekretariat');
             Route::get('/Sekretariat/FilterDisposisiSuratMasuk', [SekretariatController::class, 'FilterDisposisiSuratMasuk'])->name('FilterDisposisiSuratMasuk_sekretariat');
             Route::get('/Sekretariat/FilterDisposisiSuratKeluar', [SekretariatController::class, 'FilterDisposisiSuratKeluar'])->name('FilterDisposisiSuratKeluar_sekretariat');
+
+            Route::get('/Sekretariat/HapusSemuaArsipSuratMasuk', [SekretariatController::class, 'HapusSemuaArsipSuratMasuk'])->name('HapusSemuaArsipSuratMasuk_sekretariat');
+            Route::get('/Sekretariat/HapusSemuaArsipSuratKeluar', [SekretariatController::class, 'HapusSemuaArsipSuratKeluar'])->name('HapusSemuaArsipSuratKeluar_sekretariat');
+            Route::get('/Sekretariat/HapusSemuaDisposisiArsipSuratMasuk', [SekretariatController::class, 'HapusSemuaDisposisiArsipSuratMasuk'])->name('HapusSemuaDisposisiArsipSuratMasuk_sekretariat');
+            Route::get('/Sekretariat/HapusSemuaDisposisiArsipSuratKeluar', [SekretariatController::class, 'HapusSemuaDisposisiArsipSuratKeluar'])->name('HapusSemuaDisposisiArsipSuratKeluar_sekretariat');
         });
 
         // AKTOR DOSEN STAFF

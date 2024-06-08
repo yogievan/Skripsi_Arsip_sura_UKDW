@@ -42,7 +42,7 @@
                                 </select>
                             </div>
                             <div class="col-span-2">
-                                <label class="font-semibold">Unit Pengirim</label>
+                                <label class="font-semibold">Unit Penerima</label>
                                 <select name="id_unit" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
                                     <option selected>Pilih Unit Pengirim</option>
                                     @foreach ($unit as $item)
@@ -115,7 +115,7 @@
                                     @endforeach
                                 </select>
                                 <input name="no_urut" type="number" class="block bg-white rounded w-[100px] outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500" placeholder="No">
-                                <select name="id_unit" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
+                                <select name="unit_pembuat_surat" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
                                     <option selected>Pilih Unit</option>
                                     @foreach ($unit as $item)
                                         <option value="{{ $item -> id }}">{{ $item -> unit }}</option>
@@ -145,7 +145,26 @@
                         </div>
                         <div class="my-2">
                             <label class="font-semibold">Penerima Surat</label>
+                            <i data-tooltip-target="info_penerima_one" class="fas fa-info-circle ml-1"></i>
+                            <div id="info_penerima_one" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                Field ini dapat dikosongi
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
                             <input name="penerima" type="email" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500">
+                        </div>
+                        <div class="my-2">
+                            <label class="font-semibold">Unit Penerima Surat</label>
+                            <i data-tooltip-target="info_penerima_unit" class="fas fa-info-circle ml-1"></i>
+                            <div id="info_penerima_unit" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                Field ini dapat dikosongi
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                            <select name="id_unit" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
+                                <option selected>Pilih Unit Penerima</option>
+                                @foreach ($unit as $item)
+                                    <option value="{{ $item -> id }}">{{ $item -> unit }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="my-2">
                             <label class="font-semibold">Subjek</label>

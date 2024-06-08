@@ -117,15 +117,12 @@
                         @else
                         <tr class="border">
                             <td colspan="5" class="text-center p-2">
-                                No Data Record Kategori Surat
+                                No Data Record Users
                             </td>
                         </tr>
                         @endif
                     </tbody>
                 </table>
-            </div>
-            <div class="mt-4">
-                {{ $kategori -> links() }}
             </div>
         </div>
     </div>

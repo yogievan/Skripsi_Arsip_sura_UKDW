@@ -88,7 +88,7 @@
                     @endforeach
                     @else
                     <tr class="border">
-                        <td colspan="8" class="text-center p-2">No Record Data Disposisi Surat Masuk</td>
+                        <td colspan="8" class="text-center p-2">No Record Data Disposisi Surat Keluar</td>
                     </tr>
                     @endif
                 </tbody>

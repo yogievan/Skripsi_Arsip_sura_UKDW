@@ -167,4 +167,41 @@ class AdminController extends Controller
         Alert::toast('Data jabatan UKDW berhasil dihapus!','success');
         return redirect(route('Jabatan_admin'));
     }
+
+    public function FilterPengguna(Request $request){
+        $filter_pengguna = $request->filter_pengguna;
+        $jabatan = Jabatan::all();
+        $unit = Unit::all();
+
+        $users = User::where('nama','LIKE','%'.$filter_pengguna.'%')->get();
+        return view('admin.kelola_pengguna_filter', compact('users'),[
+            'jabatan' => $jabatan,
+            'unit' => $unit,
+            'users' => $users,
+        ]);
+    }
+    public function FilterKategoriSurat(Request $request){
+        $filter_kategori_surat = $request->filter_kategori_surat;
+
+        $kategori = Kategori::where('letter_code','LIKE','%'.$filter_kategori_surat.'%')->orWhere('kategori_surat','LIKE','%'.$filter_kategori_surat.'%')->get();
+        return view('admin.kategori_filter', compact('kategori'),[
+            'kategori' => $kategori,
+        ]);
+    }
+    public function FilterUnit(Request $request){
+        $filter_unit = $request->filter_unit;
+
+        $unit = Unit::where('unit','LIKE','%'.$filter_unit.'%')->get();
+        return view('admin.unit_filter', compact('unit'),[
+            'unit' => $unit,
+        ]);
+    }
+    public function FilterJabatan(Request $request){
+        $filter_jabatan = $request->filter_jabatan;
+
+        $jabatan = Jabatan::where('jabatan','LIKE','%'.$filter_jabatan.'%')->get();
+        return view('admin.jabatan_filter', compact('jabatan'),[
+            'jabatan' => $jabatan,
+        ]);
+    }
 }

@@ -29,19 +29,23 @@ class AuthController extends Controller
         if(Auth::attempt($datalogin)){
             //hak akses
             if(Auth::user()->role == 'Sekretariat'){
-                Alert::toast('Login Berhasil, Selamat Datang! ','success');
+                $nama = Auth::user()->nama;
+                Alert::toast('Login Berhasil, Selamat Datang '."$nama".'! ','success');
                 return redirect(route('Dashboard_sekretariat'));
             }
             elseif(Auth::user()->role == 'KepalaUnit'){
-                Alert::toast('Login Berhasil, Selamat Datang! ','success');
+                $nama = Auth::user()->nama;
+                Alert::toast('Login Berhasil, Selamat Datang '."$nama".'! ','success');
                 return redirect(route('Dashboard_kepalaunit'));
             } 
             elseif(Auth::user()->role == 'DosenStaff'){
-                Alert::toast('Login Berhasil, Selamat Datang! ','success');
+                $nama = Auth::user()->nama;
+                Alert::toast('Login Berhasil, Selamat Datang '."$nama".'! ','success');
                 return redirect(route('Dashboard_dosenstaff'));
             }
             elseif(Auth::user()->role == 'Admin'){
-                Alert::toast('Login Berhasil, Selamat Datang! ','success');
+                $nama = Auth::user()->nama;
+                Alert::toast('Login Berhasil, Selamat Datang '."$nama".'! ','success');
                 return redirect(route('KelolaPengguna_admin'));
             }
         }

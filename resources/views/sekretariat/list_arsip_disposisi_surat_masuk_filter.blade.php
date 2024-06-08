@@ -6,30 +6,30 @@
 @section('content_tittle', 'Arsip Disposisi Surat Masuk')
 @section('content')
 <div>
-    <div>
-        <form action="{{route('FilterDisposisiSuratMasuk_sekretariat')}}">
-            @csrf
-            <div class="flex w-[600px] ml-auto gap-1">
-                <input type="date" name="filter_disposisi_surat_masuk" class="rounded-md bg-white border-green-500 focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm p-2.5">
-                <button class="bg-[#006B3F] p-3 rounded-md text-white ml-2 w-[150px] font-semibold">Cari</button>
-            </div>
-        </form>
-    </div>
-
-    <div>
-        <button type="submit" name="deleteAll" class="flex gap-3 bg-red-600 p-3 rounded text-white hover:bg-red-500">
-            <i class="fas fa-trash-alt text-white m-auto"></i>
-            <p>Hapus Surat Masuk</p>
-        </button>
+    <div class="flex gap-2">
+        <div>
+            <a href="{{route('HapusSemuaDisposisiArsipSuratMasuk_sekretariat')}}">
+                <button class="flex gap-3 bg-red-600 p-3 rounded text-white hover:bg-red-500" onclick="return confirm('Yakin untuk menghapus semua surat keluar?')">
+                    <i class="fas fa-trash-alt text-white m-auto"></i>
+                    <p>Hapus Semua Surat Keluar</p>
+                </button>
+            </a>
+        </div>
+        <div class="ml-auto">
+            <form action="{{route('FilterDisposisiSuratMasuk_sekretariat')}}">
+                @csrf
+                <div class="flex w-[600px] gap-1">
+                    <input type="date" name="filter_disposisi_surat_masuk" class="rounded-md bg-white border-green-500 focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <button class="bg-[#006B3F] p-3 rounded-md text-white ml-2 w-[150px] font-semibold">Cari</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="mt-8">
         <div class="relative overflow-x-auto border rounded">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
-                        <th scope="col" class="p-2 text-center border w-[40px]">
-                            <input type="checkbox" id="checkboxesMain" class="rounded">
-                        </th>
                         <th scope="col" class="p-2 text-center border w-[20px]">
                             No
                         </th>
@@ -60,9 +60,6 @@
                     @if ($disposisiSuratMasuk->count() >0)
                     @foreach ($disposisiSuratMasuk as $no => $item)
                     <tr class="border">
-                        <td scope="col" class="p-2 text-center border w-[40px]">
-                            <input type="checkbox" class="checkbox rounded">
-                        </td>
                         <td scope="row" class="p-2 text-center border w-[20px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ ++$no}}
                         </td>

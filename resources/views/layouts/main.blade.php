@@ -29,10 +29,13 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     
-    <!-- include summernote css/js -->
+    {{-- include summernote css/js --}}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    {{-- grafik --}}
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body>
     <div class="grid">
@@ -63,8 +66,10 @@
                     {{-- optional content --}}
                     @yield('optional_content')
 
+                    @yield('graph_content')
+
                     {{-- content 2 --}}
-                    <div class="bg-white rounded-md border shadow mt-5 p-4 min-h-[670px]">
+                    <div class="bg-white rounded-md border shadow mt-3 p-4 min-h-[670px]">
                         {{-- content components --}}
                         @yield('content')
                     </div>

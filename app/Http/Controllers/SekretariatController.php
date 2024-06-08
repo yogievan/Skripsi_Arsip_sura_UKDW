@@ -19,7 +19,16 @@ use DOMDocument;
 class SekretariatController extends Controller
 {
     public function ViewDashboard(){
-        return view('sekretariat.dashboard');
+        $tgl = date('l, d F Y');
+        $bulan = date('F');
+        $tahun = date('Y');
+
+
+        return view('sekretariat.dashboard',[
+            'tgl' => $tgl,
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+        ]);
     }
     public function ViewArsipSurat(){
         $kategori_surat = Kategori::all();
@@ -73,14 +82,14 @@ class SekretariatController extends Controller
         $status_surat ="Surat Belum Tervalidasi Kepala Unit";
         $kode_kategori = $request->id_kategori_surat;
         $no_urut = $request->no_urut;
-        $id_unit = $request->id_unit;
+        $unit_pembuat_surat = $request->id_unit;
         $bulan = $request->bulan;
         $tahun = $request->tahun;
-        $kode_surat = $kode_kategori.".".$no_urut."/".$id_unit."/".$bulan."/".$tahun;
+        $kode_surat = $kode_kategori.".".$no_urut."/".$unit_pembuat_surat."/".$bulan."/".$tahun;
 
         SuratKeluar::create([
             'id_kategori_surat' => $request -> id_kategori_surat,
-            'id_unit' => $id_unit,
+            'id_unit' => $request -> id_unit,
             'kode_surat' => $kode_surat,
             'pengirim' => $request -> pengirim,
             'penerima' => $request -> penerima,
@@ -492,5 +501,26 @@ class SekretariatController extends Controller
         return view('sekretariat.list_arsip_disposisi_surat_keluar_filter', compact('disposisiSuratKeluar'),[
             'disposisiSuratKeluar' => $disposisiSuratKeluar,
         ]);
+    }
+
+    public function HapusSemuaArsipSuratMasuk(){
+        SuratMasuk::query()->delete();
+        Alert::toast('Semua Surat Masuk berhasil dihapus!','success');
+        return Redirect::back(); 
+    }
+    public function HapusSemuaArsipSuratKeluar(){
+        SuratKeluar::query()->delete();
+        Alert::toast('Semua Surat Keluar berhasil dihapus!','success');
+        return Redirect::back(); 
+    }
+    public function HapusSemuaDisposisiArsipSuratMasuk(){
+        disposisiSuratMasuk::query()->delete();
+        Alert::toast('Semua Disposisi Surat Masuk berhasil dihapus!','success');
+        return Redirect::back(); 
+    }
+    public function HapusSemuaDisposisiArsipSuratKeluar(){
+        disposisiSuratKeluar::query()->delete();
+        Alert::toast('Semua Disposisi Surat Keluar berhasil dihapus!','success');
+        return Redirect::back(); 
     }
 }

@@ -68,7 +68,7 @@
                 </div>
                 <div class="w-full grid grid-cols-2 gap-4 mb-2">
                     <div class="">
-                        <label class="font-normal">Unit Pengirim</label>
+                        <label class="font-normal">Unit</label>
                         <p class="font-semibold break-words">{{$nama_unt}}</p>
                     </div>
                     <div class="text-right">

@@ -19,7 +19,15 @@ use DOMDocument;
 class KepalaUnitController extends Controller
 {
     public function ViewDashboard(){
-        return view('kepala_unit.dashboard');
+        $tgl = date('l, d F Y');
+        $bulan = date('F');
+        $tahun = date('Y');
+
+        return view('kepala_unit.dashboard',[
+            'tgl' => $tgl,
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+        ]);
     }
 
     public function ViewArsipSurat(){
@@ -76,14 +84,14 @@ class KepalaUnitController extends Controller
         $status_surat ="Surat Tervalidasi Kepala Unit";
         $kode_kategori = $request->id_kategori_surat;
         $no_urut = $request->no_urut;
-        $id_unit = $request->id_unit;
+        $unit_pembuat_surat = $request->id_unit;
         $bulan = $request->bulan;
         $tahun = $request->tahun;
-        $kode_surat = $kode_kategori.".".$no_urut."/".$id_unit."/".$bulan."/".$tahun;
+        $kode_surat = $kode_kategori.".".$no_urut."/".$unit_pembuat_surat."/".$bulan."/".$tahun;
 
         SuratKeluar::create([
             'id_kategori_surat' => $request -> id_kategori_surat,
-            'id_unit' => $id_unit,
+            'id_unit' => $request -> id_unit,
             'kode_surat' => $kode_surat,
             'pengirim' => $request -> pengirim,
             'penerima' => $request -> penerima,

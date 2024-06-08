@@ -18,7 +18,15 @@ use RealRashid\SweetAlert\Facades\Alert;
 class DosenStaffController extends Controller
 {
     public function ViewDashboard(){
-        return view('dosen_staff.dashboard');
+        $tgl = date('l, d F Y');
+        $bulan = date('F');
+        $tahun = date('Y');
+
+        return view('dosen_staff.dashboard',[
+            'tgl' => $tgl,
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+        ]);
     }
 
     public function DetailArsipSuratMasuk($id){
@@ -101,7 +109,8 @@ class DosenStaffController extends Controller
     }
     public function ListArsipSuratMasuk(){
         $penerima = Auth::user()->email;
-        $suratMasuk = SuratMasuk::orderBy('id', 'DESC')->where('penerima', $penerima)->paginate(25);
+        $unit = Auth::user()->id_unit;
+        $suratMasuk = SuratMasuk::orderBy('id', 'DESC')->where('penerima', $penerima)->orWhere('id_unit', $unit)->paginate(25);
         $date = date('D, d M Y');
 
         return view('dosen_staff.list_arsip_surat_masuk',
@@ -113,7 +122,8 @@ class DosenStaffController extends Controller
 
     public function ListArsipSuratKeluar(){
         $penerima = Auth::user()->email;
-        $suratKeluar = SuratKeluar::orderBy('id', 'DESC')->where('penerima', $penerima)->paginate(25);
+        $unit = Auth::user()->id_unit;
+        $suratKeluar = SuratKeluar::orderBy('id', 'DESC')->where('penerima', $penerima)->orWhere('id_unit', $unit)->paginate(25);
         $date = date('D, d M Y');
 
         return view('dosen_staff.list_arsip_surat_keluar',

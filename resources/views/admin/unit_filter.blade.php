@@ -114,9 +114,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="mt-4">
-                {{ $unit -> links() }}
-            </div>
         </div>
     </div>
 @endsection

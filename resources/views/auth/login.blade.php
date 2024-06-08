@@ -61,12 +61,12 @@
                             @csrf
                             <div class="m-3">
                                 <label for="username" class="text-[18px] text-[#006B3F] font-semibold">Username</label>
-                                <input type="text" name="username" placeholder="Username" class="bg-white border border-[#006B3F] border-1 rounded-md w-full p-2 focus:ring-green-800 focus:border-green-800">
+                                <input type="text" name="username" placeholder="Username" class="bg-white border border-[#006B3F] border-1 rounded-md w-full p-2 font-normal focus:ring-green-800 focus:border-green-800">
                             </div>
                             <div class="m-3">
                                 <label for="password" class="text-[18px] text-[#006B3F] font-semibold">Password</label>
                                 <div class="flex gap-2">
-                                    <input id="password" type="password" name="password" placeholder="••••••••" class="bg-white border border-[#006B3F] border-1 rounded-md w-full p-2 focus:ring-green-800 focus:border-green-800">
+                                    <input id="password" type="password" name="password" placeholder="••••••••" class="bg-white border border-[#006B3F] border-1 rounded-md w-full p-2 font-normal focus:ring-green-800 focus:border-green-800">
                                     <img class="w-[25px] cursor-pointer" src="../assets/icons/eye-slash-solid.svg" alt="" onclick="pass()" id="pass-icon">
                                 </div>
                             </div>

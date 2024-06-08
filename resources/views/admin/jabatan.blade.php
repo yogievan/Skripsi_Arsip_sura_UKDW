@@ -48,13 +48,13 @@
                 </div>
             </div>
             <div class="ml-auto">
-                <form action="#">
+                <form action="{{route('FilterJabatan_admin')}}">
                     @csrf
                     <div class="flex h-[50px] w-[600px] ml-auto">
                         <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-e-0 rounded-s-md">
                             <i class="fas fa-search"></i>
                         </span>
-                        <input type="text" class="rounded-none rounded-e-lg bg-white border focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm border-gray-200 p-2.5" placeholder="Cari Jabatan">
+                        <input type="text" name="filter_jabatan" class="rounded-none rounded-e-lg bg-white border focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm border-gray-200 p-2.5" placeholder="Cari Pengguna">
                         <button class="bg-[#006B3F] p-3 rounded-md text-white ml-2 w-[100px] font-semibold">Cari</button>
                     </div>
                 </form>
@@ -79,6 +79,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if ($jabatan->count() >0)
                         @foreach ($jabatan as $no => $item)
                             <tr class="bg-white border-b">
                                 <th scope="row" class="p-2 text-center border w-[100px] font-normal text-gray-900 whitespace-nowrap">
@@ -103,6 +104,13 @@
                                 </td>
                             </tr>
                         @endforeach
+                        @else
+                        <tr class="border">
+                            <td colspan="5" class="text-center p-2">
+                                No Data Record Jabatan
+                            </td>
+                        </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>

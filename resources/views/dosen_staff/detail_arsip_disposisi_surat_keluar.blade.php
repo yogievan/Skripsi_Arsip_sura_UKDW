@@ -65,7 +65,7 @@
                         <p class="font-semibold break-words">{{$nama_kat}}</p>
                     </div>
                     <div class="my-2 text-right">
-                        <label class="font-normal">Unit Pengirim</label>
+                        <label class="font-normal">Unit</label>
                         <p class="font-semibold break-words">{{$nama_unt}}</p>
                     </div>
                 </div>
