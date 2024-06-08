@@ -1,4 +1,4 @@
-## Arsip Surat
+## Arsip Surat UKDW
 
 Surat merupakan media berkomunikasi untuk menyampaikan informasi secara penting dengan menggunakan media kertas yang ditulis atau di ketik. Surat merupakan bukti hitam di atas putih yang memiliki kekuatan hukum, sehingga perlu dilakukan penanganan khusus terhadap surat baik surat masuk dan surat keluar. Surat masuk adalah surat yang dikirim dan diterima oleh instansi atau kantor lain maupun perorangan, sedangkan surat keluar adalah surat lengkap yang bertanggal, bernomor, berstempel dan di tandatangai oleh pihak yang berwenang dalam sebuah istansi untuk di tujukan kepada istansi atau kantor lain (Yomi & Rahmah, 2015).
 
