@@ -22,8 +22,8 @@
             </div>
         </div>
         @php
-        // Nama Kategori
-        foreach ($suratkeluar as $kat) {
+                // Nama Kategori
+                foreach ($suratkeluar as $kat) {
                     $id_kat = $suratkeluar -> id_kategori_surat;
                     foreach ($kategori as $kat) {
                         if ($id_kat == $kat -> id) {
@@ -49,6 +49,15 @@
                         }
                     }
                 }
+                // Nama unit penerima                
+                foreach ($suratkeluar as $unt_pen) {
+                    $unt = $suratkeluar -> id_kategori_surat;
+                    foreach ($unit as $unt_pen) {
+                        if ($unt == $unt_pen -> id) {
+                            $unit_penerima = $unt_pen -> kategori_surat;
+                        }
+                    }
+                }
         @endphp
         <div class="bg-white border rounded-md shadow p-4 w-[700px]">
             <p class="font-bold text-[18px]">
@@ -63,12 +72,16 @@
                 </div>
                 <hr>
                 <div class="my-2">
+                    <label class="font-normal">Unit Penerima</label>
+                    <p class="font-semibold break-words">{{$unit_penerima}}</p>
+                </div>
+                <div class="my-2">
                     <label class="font-normal">Kategori Surat</label>
                     <p class="font-semibold break-words">{{$nama_kat}}</p>
                 </div>
                 <div class="w-full grid grid-cols-2 gap-4 mb-2">
                     <div class="">
-                        <label class="font-normal">Unit</label>
+                        <label class="font-normal">Unit Pengirim</label>
                         <p class="font-semibold break-words">{{$nama_unt}}</p>
                     </div>
                     <div class="text-right">

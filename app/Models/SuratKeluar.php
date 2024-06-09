@@ -16,6 +16,7 @@ class SuratKeluar extends Model
         'kode_surat',
         'pengirim',
         'penerima',
+        'unit_penerima',
         'subjek',
         'catatan',
         'lampiran_1',

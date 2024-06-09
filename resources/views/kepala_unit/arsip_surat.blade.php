@@ -42,9 +42,9 @@
                                 </select>
                             </div>
                             <div class="col-span-2">
-                                <label class="font-semibold">Unit Pengirim</label>
+                                <label class="font-semibold">Unit Pengirim Surat</label>
                                 <select name="id_unit" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
-                                    <option selected>Pilih Unit Pengirim</option>
+                                    <option selected>Pilih Unit Pengirim Surat</option>
                                     @foreach ($unit as $item)
                                         <option value="{{ $item -> id }}">{{ $item -> unit }}</option>
                                     @endforeach
@@ -92,7 +92,7 @@
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 laptop:p-5 border-b border-[#006B3F] rounded-t">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                        Arsip Surat Masuk
+                        Arsip Surat Keluar
                     </h3>
                     <button data-modal-hide="tambah_arsip_surat_keluar" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -115,8 +115,8 @@
                                     @endforeach
                                 </select>
                                 <input name="no_urut" type="number" class="block bg-white rounded w-[100px] outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500" placeholder="No">
-                                <select name="unit_pembuat_surat" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
-                                    <option selected>Pilih Unit</option>
+                                <select name="id_unit" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
+                                    <option selected>Pilih Unit Pembuat Surat</option>
                                     @foreach ($unit as $item)
                                         <option value="{{ $item -> id }}">{{ $item -> unit }}</option>
                                     @endforeach
@@ -159,8 +159,8 @@
                                 Field ini dapat dikosongi
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
-                            <select name="id_unit" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
-                                <option selected>Pilih Unit Penerima</option>
+                            <select name="unit_penerima" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
+                                <option value="" selected>Pilih Unit Penerima</option>
                                 @foreach ($unit as $item)
                                     <option value="{{ $item -> id }}">{{ $item -> unit }}</option>
                                 @endforeach
@@ -267,9 +267,9 @@
                     @endif
                 </tbody>
             </table>
-            <div class="my-auto ml-auto">
-                {{ $suratMasuk->links() }}
-            </div>
+        </div>
+        <div class="mt-3">
+            {{ $suratMasuk->links() }}
         </div>
     </div>
 
@@ -355,9 +355,9 @@
                    @endif
                 </tbody>
             </table>
-            <div class="my-auto ml-auto">
-                {{ $suratKeluar->links() }}
-            </div>
+        </div>
+        <div class="mt-3">
+            {{ $suratKeluar->links() }}
         </div>
     </div>
 

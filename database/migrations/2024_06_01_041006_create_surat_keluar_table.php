@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('kode_surat');
             $table->string('pengirim')->nullable();
             $table->string('penerima')->nullable();
+            $table->bigInteger('unit_penerima')->nullable();
             $table->string('subjek');
             $table->longText('catatan')->nullable();
             $table->string('lampiran_1')->nullable();

@@ -7,7 +7,8 @@
 <hr>
 <li class="my-2">
     <a href="{{ route('ArsipSurat_kepalaunit') }}" class="flex gap-3 p-2 rounded font-semibold hover:bg-white hover:text-[#006B3F]">
-        <i class="fas fa-folder-plus mr-3"></i> Arsip Surat
+        <i class="fa-solid fa-file-circle-plus my-auto"></i>
+        <p>Arsip Surat</p>
     </a>
 </li>
 <hr>

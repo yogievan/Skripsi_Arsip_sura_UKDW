@@ -49,6 +49,15 @@
                         }
                     }
                 }
+                // Nama unit penerima                
+                foreach ($suratkeluar as $unt_pen) {
+                    $unt = $suratkeluar -> id_kategori_surat;
+                    foreach ($unit as $unt_pen) {
+                        if ($unt == $unt_pen -> id) {
+                            $unit_penerima = $unt_pen -> kategori_surat;
+                        }
+                    }
+                }
         @endphp
         <div class="bg-white border rounded-md shadow p-4 w-[700px]">
             <p class="font-bold text-[18px]">
@@ -62,6 +71,10 @@
                     <p class="font-semibold break-words">{{$suratkeluar -> subjek}}</p>
                 </div>
                 <hr>
+                <div class="my-2">
+                    <label class="font-normal">Unit Penerima</label>
+                    <p class="font-semibold break-words">{{$unit_penerima}}</p>
+                </div>
                 <div class="my-2">
                     <label class="font-normal">Kategori Surat</label>
                     <p class="font-semibold break-words">{{$nama_kat}}</p>
