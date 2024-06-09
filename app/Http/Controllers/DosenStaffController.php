@@ -93,8 +93,8 @@ class DosenStaffController extends Controller
         $disposisiSuratMasuk_count_yaer = ($disposisiSuratMasuk_count / $all_year)*(1/100);
         $disposisiSuratKeluar_count_yaer = ($disposisiSuratKeluar_count / $all_year)*(1/100);
 
-        $suratMasuk_day = SuratMasuk::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->paginate(5);
-        $suratKeluar_day = SuratKeluar::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->paginate(5);
+        $suratMasuk_day = SuratMasuk::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->where('status_surat', $status_surat)->paginate(5);
+        $suratKeluar_day = SuratKeluar::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->where('status_surat', $status_surat)->paginate(5);
         $disposisiSuratMasuk_day = disposisiSuratMasuk::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->paginate(5);
         $disposisiSuratKeluar_day = disposisiSuratKeluar::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->paginate(5);
 
