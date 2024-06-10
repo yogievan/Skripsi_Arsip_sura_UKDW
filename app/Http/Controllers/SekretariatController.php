@@ -31,57 +31,57 @@ class SekretariatController extends Controller
         $disposisiSuratKeluar_count_day = disposisiSuratKeluar::whereDate('created_at', date('Y-m-d'))->count();
         
         // count per bulan        
-        $suratMasuk_count_Jan = SuratMasuk::whereMonth('created_at', date('01'))->count();
-        $suratMasuk_count_Feb = SuratMasuk::whereMonth('created_at', date('02'))->count();
-        $suratMasuk_count_Mar = SuratMasuk::whereMonth('created_at', date('03'))->count();
-        $suratMasuk_count_Apr = SuratMasuk::whereMonth('created_at', date('04'))->count();
-        $suratMasuk_count_Mei = SuratMasuk::whereMonth('created_at', date('05'))->count();
-        $suratMasuk_count_Jun = SuratMasuk::whereMonth('created_at', date('06'))->count();
-        $suratMasuk_count_Jul = SuratMasuk::whereMonth('created_at', date('07'))->count();
-        $suratMasuk_count_Aug = SuratMasuk::whereMonth('created_at', date('08'))->count();
-        $suratMasuk_count_Sep = SuratMasuk::whereMonth('created_at', date('09'))->count();
-        $suratMasuk_count_Okt = SuratMasuk::whereMonth('created_at', date('10'))->count();
-        $suratMasuk_count_Nov = SuratMasuk::whereMonth('created_at', date('11'))->count();
-        $suratMasuk_count_Des = SuratMasuk::whereMonth('created_at', date('12'))->count();
+        $suratMasuk_count_Jan = SuratMasuk::whereMonth('created_at', date('01'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Feb = SuratMasuk::whereMonth('created_at', date('02'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Mar = SuratMasuk::whereMonth('created_at', date('03'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Apr = SuratMasuk::whereMonth('created_at', date('04'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Mei = SuratMasuk::whereMonth('created_at', date('05'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Jun = SuratMasuk::whereMonth('created_at', date('06'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Jul = SuratMasuk::whereMonth('created_at', date('07'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Aug = SuratMasuk::whereMonth('created_at', date('08'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Sep = SuratMasuk::whereMonth('created_at', date('09'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Okt = SuratMasuk::whereMonth('created_at', date('10'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Nov = SuratMasuk::whereMonth('created_at', date('11'))->whereYear('created_at', now()->year)->count();
+        $suratMasuk_count_Des = SuratMasuk::whereMonth('created_at', date('12'))->whereYear('created_at', now()->year)->count();
 
-        $suratKeluar_count_Jan = SuratKeluar::whereMonth('created_at', date('01'))->count();
-        $suratKeluar_count_Feb = SuratKeluar::whereMonth('created_at', date('02'))->count();
-        $suratKeluar_count_Mar = SuratKeluar::whereMonth('created_at', date('03'))->count();
-        $suratKeluar_count_Apr = SuratKeluar::whereMonth('created_at', date('04'))->count();
-        $suratKeluar_count_Mei = SuratKeluar::whereMonth('created_at', date('05'))->count();
-        $suratKeluar_count_Jun = SuratKeluar::whereMonth('created_at', date('06'))->count();
-        $suratKeluar_count_Jul = SuratKeluar::whereMonth('created_at', date('07'))->count();
-        $suratKeluar_count_Aug = SuratKeluar::whereMonth('created_at', date('08'))->count();
-        $suratKeluar_count_Sep = SuratKeluar::whereMonth('created_at', date('09'))->count();
-        $suratKeluar_count_Okt = SuratKeluar::whereMonth('created_at', date('10'))->count();
-        $suratKeluar_count_Nov = SuratKeluar::whereMonth('created_at', date('11'))->count();
-        $suratKeluar_count_Des = SuratKeluar::whereMonth('created_at', date('12'))->count();
+        $suratKeluar_count_Jan = SuratKeluar::whereMonth('created_at', date('01'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Feb = SuratKeluar::whereMonth('created_at', date('02'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Mar = SuratKeluar::whereMonth('created_at', date('03'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Apr = SuratKeluar::whereMonth('created_at', date('04'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Mei = SuratKeluar::whereMonth('created_at', date('05'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Jun = SuratKeluar::whereMonth('created_at', date('06'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Jul = SuratKeluar::whereMonth('created_at', date('07'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Aug = SuratKeluar::whereMonth('created_at', date('08'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Sep = SuratKeluar::whereMonth('created_at', date('09'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Okt = SuratKeluar::whereMonth('created_at', date('10'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Nov = SuratKeluar::whereMonth('created_at', date('11'))->whereYear('created_at', now()->year)->count();
+        $suratKeluar_count_Des = SuratKeluar::whereMonth('created_at', date('12'))->whereYear('created_at', now()->year)->count();
 
-        $disposisiSuratMasuk_count_Jan = disposisiSuratMasuk::whereMonth('created_at', date('01'))->count();
-        $disposisiSuratMasuk_count_Feb = disposisiSuratMasuk::whereMonth('created_at', date('02'))->count();
-        $disposisiSuratMasuk_count_Mar = disposisiSuratMasuk::whereMonth('created_at', date('03'))->count();
-        $disposisiSuratMasuk_count_Apr = disposisiSuratMasuk::whereMonth('created_at', date('04'))->count();
-        $disposisiSuratMasuk_count_Mei = disposisiSuratMasuk::whereMonth('created_at', date('05'))->count();
-        $disposisiSuratMasuk_count_Jun = disposisiSuratMasuk::whereMonth('created_at', date('06'))->count();
-        $disposisiSuratMasuk_count_Jul = disposisiSuratMasuk::whereMonth('created_at', date('07'))->count();
-        $disposisiSuratMasuk_count_Aug = disposisiSuratMasuk::whereMonth('created_at', date('08'))->count();
-        $disposisiSuratMasuk_count_Sep = disposisiSuratMasuk::whereMonth('created_at', date('09'))->count();
-        $disposisiSuratMasuk_count_Okt = disposisiSuratMasuk::whereMonth('created_at', date('10'))->count();
-        $disposisiSuratMasuk_count_Nov = disposisiSuratMasuk::whereMonth('created_at', date('11'))->count();
-        $disposisiSuratMasuk_count_Des = disposisiSuratMasuk::whereMonth('created_at', date('12'))->count();
+        $disposisiSuratMasuk_count_Jan = disposisiSuratMasuk::whereMonth('created_at', date('01'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Feb = disposisiSuratMasuk::whereMonth('created_at', date('02'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Mar = disposisiSuratMasuk::whereMonth('created_at', date('03'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Apr = disposisiSuratMasuk::whereMonth('created_at', date('04'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Mei = disposisiSuratMasuk::whereMonth('created_at', date('05'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Jun = disposisiSuratMasuk::whereMonth('created_at', date('06'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Jul = disposisiSuratMasuk::whereMonth('created_at', date('07'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Aug = disposisiSuratMasuk::whereMonth('created_at', date('08'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Sep = disposisiSuratMasuk::whereMonth('created_at', date('09'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Okt = disposisiSuratMasuk::whereMonth('created_at', date('10'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Nov = disposisiSuratMasuk::whereMonth('created_at', date('11'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratMasuk_count_Des = disposisiSuratMasuk::whereMonth('created_at', date('12'))->whereYear('created_at', now()->year)->count();
 
-        $disposisiSuratKeluar_count_Jan = disposisiSuratKeluar::whereMonth('created_at', date('01'))->count();
-        $disposisiSuratKeluar_count_Feb = disposisiSuratKeluar::whereMonth('created_at', date('02'))->count();
-        $disposisiSuratKeluar_count_Mar = disposisiSuratKeluar::whereMonth('created_at', date('03'))->count();
-        $disposisiSuratKeluar_count_Apr = disposisiSuratKeluar::whereMonth('created_at', date('04'))->count();
-        $disposisiSuratKeluar_count_Mei = disposisiSuratKeluar::whereMonth('created_at', date('05'))->count();
-        $disposisiSuratKeluar_count_Jun = disposisiSuratKeluar::whereMonth('created_at', date('06'))->count();
-        $disposisiSuratKeluar_count_Jul = disposisiSuratKeluar::whereMonth('created_at', date('07'))->count();
-        $disposisiSuratKeluar_count_Aug = disposisiSuratKeluar::whereMonth('created_at', date('08'))->count();
-        $disposisiSuratKeluar_count_Sep = disposisiSuratKeluar::whereMonth('created_at', date('09'))->count();
-        $disposisiSuratKeluar_count_Okt = disposisiSuratKeluar::whereMonth('created_at', date('10'))->count();
-        $disposisiSuratKeluar_count_Nov = disposisiSuratKeluar::whereMonth('created_at', date('11'))->count();
-        $disposisiSuratKeluar_count_Des = disposisiSuratKeluar::whereMonth('created_at', date('12'))->count();
+        $disposisiSuratKeluar_count_Jan = disposisiSuratKeluar::whereMonth('created_at', date('01'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Feb = disposisiSuratKeluar::whereMonth('created_at', date('02'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Mar = disposisiSuratKeluar::whereMonth('created_at', date('03'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Apr = disposisiSuratKeluar::whereMonth('created_at', date('04'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Mei = disposisiSuratKeluar::whereMonth('created_at', date('05'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Jun = disposisiSuratKeluar::whereMonth('created_at', date('06'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Jul = disposisiSuratKeluar::whereMonth('created_at', date('07'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Aug = disposisiSuratKeluar::whereMonth('created_at', date('08'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Sep = disposisiSuratKeluar::whereMonth('created_at', date('09'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Okt = disposisiSuratKeluar::whereMonth('created_at', date('10'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Nov = disposisiSuratKeluar::whereMonth('created_at', date('11'))->whereYear('created_at', now()->year)->count();
+        $disposisiSuratKeluar_count_Des = disposisiSuratKeluar::whereMonth('created_at', date('12'))->whereYear('created_at', now()->year)->count();
 
         // count per tahun
         $suratMasuk_count = SuratMasuk::whereYear('created_at', now()->year)->count();
@@ -407,7 +407,7 @@ class SekretariatController extends Controller
         return Redirect::back();
     }
     public function ListArsipSuratMasuk(){
-        $suratMasuk = SuratMasuk::orderBy('id', 'DESC')->paginate(25);
+        $suratMasuk = SuratMasuk::orderBy('id', 'DESC')->whereYear('created_at', now()->year)->paginate(25);
         $date = date('D, d M Y');
 
         return view('sekretariat.list_arsip_surat_masuk',
@@ -418,7 +418,7 @@ class SekretariatController extends Controller
     }
 
     public function ListArsipSuratKeluar(){
-        $suratKeluar = SuratKeluar::orderBy('id', 'DESC')->paginate(25);
+        $suratKeluar = SuratKeluar::orderBy('id', 'DESC')->whereYear('created_at', now()->year)->paginate(25);
         $date = date('D, d M Y');
 
         return view('sekretariat.list_arsip_surat_keluar',
@@ -474,7 +474,7 @@ class SekretariatController extends Controller
     }
 
     public function ListArsipDisposisiSuratMasuk(){
-        $disposisiSuratMasuk = disposisiSuratMasuk::orderBy('id', 'DESC')->paginate(25);
+        $disposisiSuratMasuk = disposisiSuratMasuk::orderBy('id', 'DESC')->whereYear('created_at', now()->year)->paginate(25);
         $date = date('D, d M Y');
 
         return view('sekretariat.list_arsip_disposisi_surat_masuk',
@@ -485,7 +485,7 @@ class SekretariatController extends Controller
     }
 
     public function ListArsipDisposisiSuratKeluar(){
-        $disposisiSuratKeluar = disposisiSuratKeluar::orderBy('id', 'DESC')->paginate(25);
+        $disposisiSuratKeluar = disposisiSuratKeluar::orderBy('id', 'DESC')->whereYear('created_at', now()->year)->paginate(25);
         $date = date('D, d M Y');
 
         return view('sekretariat.list_arsip_disposisi_surat_keluar',
