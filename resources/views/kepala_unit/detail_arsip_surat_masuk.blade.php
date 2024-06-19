@@ -180,7 +180,7 @@
                                         <div class="tooltip-arrow" data-popper-arrow></div>
                                     </div>
                                     <select name="unit_penerima" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
-                                        <option selected>Pilih Unit Penerima</option>
+                                        <option>Pilih Unit Penerima</option>
                                         @foreach ($unit as $item)
                                             <option value="{{ $item -> id }}">{{ $item -> unit }}</option>
                                         @endforeach

@@ -160,7 +160,7 @@
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
                             <select name="unit_penerima" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500">
-                                <option value="" selected>Pilih Unit Penerima</option>
+                                <option value="">Pilih Unit Penerima</option>
                                 @foreach ($unit as $item)
                                     <option value="{{ $item -> id }}">{{ $item -> unit }}</option>
                                 @endforeach
@@ -186,6 +186,7 @@
                         <div class="mt-[30px]">
                             <Button class="bg-[#006B3F] p-3 rounded text-white w-[200px] font-semibold hover:bg-[#018951]" onclick="return confirm('Apakah Data telah diisi dengan benar?')">Simpan & Kirim</Button>
                         </div>
+                        <input name="status_surat" type="text" value="Surat Belum Tervalidasi Kepala Unit" hidden>
                     </form>
                 </div>
             </div>

@@ -25,10 +25,10 @@ class SekretariatController extends Controller
         $penerima = Auth::user()->email;
         $status_surat ="Surat Tervalidasi Kepala Unit";
         // count per hari ini
-        $suratMasuk_count_day = SuratMasuk::whereDate('created_at', date('Y-m-d'))->count();
-        $suratKeluar_count_day = SuratKeluar::whereDate('created_at', date('Y-m-d'))->count();
-        $disposisiSuratMasuk_count_day = disposisiSuratMasuk::whereDate('created_at', date('Y-m-d'))->count();
-        $disposisiSuratKeluar_count_day = disposisiSuratKeluar::whereDate('created_at', date('Y-m-d'))->count();
+        $suratMasuk_count_day = SuratMasuk::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->count();
+        $suratKeluar_count_day = SuratKeluar::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->count();
+        $disposisiSuratMasuk_count_day = disposisiSuratMasuk::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->count();
+        $disposisiSuratKeluar_count_day = disposisiSuratKeluar::whereDate('created_at', date('Y-m-d'))->where('penerima', $penerima)->count();
         
         // count per bulan        
         $suratMasuk_count_Jan = SuratMasuk::whereMonth('created_at', date('01'))->whereYear('created_at', now()->year)->count();
@@ -215,7 +215,6 @@ class SekretariatController extends Controller
         $dom = new DOMDocument();
         $dom->loadHTML($catatan,9);
         $catatan = $dom->saveHTML();
-        $status_surat ="Surat Belum Tervalidasi Kepala Unit";
         $kode_kategori = $request->id_kategori_surat;
         $no_urut = $request->no_urut;
         $id_unit = $request->id_unit;
@@ -235,7 +234,7 @@ class SekretariatController extends Controller
             'lampiran_1' => $request -> lampiran_1,
             'lampiran_2' => $request -> lampiran_2,
             'lampiran_3' => $request -> lampiran_3,
-            'status_surat' => $status_surat,
+            'status_surat' => $request -> status_surat,
         ]);
         Alert::toast('Surat Berhasil di Arsipkan!','success');
         return Redirect::back();

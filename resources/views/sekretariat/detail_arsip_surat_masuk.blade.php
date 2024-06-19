@@ -169,7 +169,26 @@
                                 </div>
                                 <div class="my-2">
                                     <label class="font-semibold">Penerima Surat</label>
-                                    <input name="penerima" type="email" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500">
+                                    <i data-tooltip-target="info_penerima_one" class="fas fa-info-circle ml-1"></i>
+                                    <div id="info_penerima_one" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                        Field ini dapat dikosongi
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                    <input name="penerima" value="{{ $suratMasuk -> penerima }}" type="email" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500">
+                                </div>
+                                <div class="my-2">
+                                    <label class="font-semibold">Unit Penerima Surat</label>
+                                    <i data-tooltip-target="info_penerima_unit" class="fas fa-info-circle ml-1"></i>
+                                    <div id="info_penerima_unit" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                        Field ini dapat dikosongi
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                    <select name="unit_penerima" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500">
+                                        <option value="">Pilih Unit Penerima</option>
+                                        @foreach ($unit as $item)
+                                            <option value="{{ $item -> id }}">{{ $item -> unit }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="my-2">
                                     <label class="font-semibold">Subjek</label>
@@ -191,6 +210,7 @@
                                 <div class="mt-[30px]">
                                     <Button class="bg-[#006B3F] p-3 rounded text-white w-[200px] font-semibold hover:bg-[#018951]" onclick="return confirm('Apakah Data telah diisi dengan benar?')">Simpan & Kirim</Button>
                                 </div>
+                                <input name="status_surat" type="text" value="{{$suratMasuk->status_surat}}" hidden>
                             </form>
                         </div>
                     </div>
