@@ -94,6 +94,72 @@
                     <a href="/KepalaUnit/TindakLanjutDetailArsipDisposisiSuratKeluar-{{ $disposisiSuratKeluar -> id }}">
                         <button class="bg-blue-700 p-3 rounded text-white font-semibold m-auto w-full hover:bg-blue-600" onclick="return confirm('Apakah Surat akan ditindak lanjut?')" {{$validasi}}>Tindak Lanjut Surat</button>
                     </a>
+                    <button data-modal-target="tambah_disposisi_surat_keluar" data-modal-toggle="tambah_disposisi_surat_keluar" class="bg-[#006B3F] p-3 rounded text-white font-semibold m-auto w-full hover:bg-[#018951] mt-3">Teruskan Surat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- disposisi surat keluar --}}
+    <div id="tambah_disposisi_surat_keluar" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-[1000px] desktop:max-w-[1500px] max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 laptop:p-5 border-b border-[#006B3F] rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Teruskan Disposisi Surat Keluar
+                    </h3>
+                    <button data-modal-hide="tambah_disposisi_surat_keluar" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+
+                <div class="p-4">
+                    <form action="{{route('DisposisiArsipSuratKeluar_kepalaunit')}}" method="POST">
+                        @csrf
+                        <div class="my-2">
+                            <label class="font-semibold">Sifat Surat Disposisi</label>
+                            <select name="id_sifat_surat" class="bg-white p-2 rounded outline-none w-full font-normal focus:ring-green-500 focus:border-green-500" required>
+                                <option selected>Pilih Sifat Surat Disposisi</option>
+                                @foreach ($sifat as $item)
+                                        @if ($disposisiSuratKeluar -> id_sifat_surat == $item -> id)
+                                            <option selected value="{{ $item -> id }}">{{ $item -> sifat_surat }}</option>
+                                        @else
+                                            <option value="{{ $item -> id }}">{{ $item -> sifat_surat }}</option>
+                                        @endif
+                                    @endforeach
+                            </select>
+                        </div>
+                        <input name="id_surat_keluar" type="text" value="{{$disposisiSuratKeluar -> id_surat_keluar}}" hidden>
+                        <div class="my-2">
+                            <label class="font-semibold">Pengirim Surat</label>
+                            <input name="pengirim" type="email" value="{{$disposisiSuratKeluar -> pengirim}}" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500" readonly>
+                        </div>
+                        <div class="my-2">
+                            <label class="font-semibold">Penerima Surat</label>
+                            <input name="penerima" type="email" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500" required>
+                        </div>
+                        <div class="my-2">
+                            <textarea id="catatan_disposisi_surat_keluar" name="catatan" class="block bg-white w-full rounded font-normal focus:ring-green-500 focus:border-green-500">
+                                {{$disposisiSuratKeluar -> catatan}}
+                            </textarea>
+                        </div>
+                        <div class="my-2">
+                            <label class="font-semibold">Lampiran</label>
+                            <input name="lampiran_1" class="block w-[50%] text-sm text-gray-500 border border-[#006B3F] rounded cursor-pointer bg-white focus:outline-none" type="file">
+                        </div>
+                        <div class="my-2">
+                            <input name="lampiran_2" class="block w-[50%] text-sm text-gray-500 border border-[#006B3F] rounded cursor-pointer bg-white focus:outline-none" type="file">
+                        </div>
+                        <div class="my-2">
+                            <input name="lampiran_3" class="block w-[50%] text-sm text-gray-500 border border-[#006B3F] rounded cursor-pointer bg-white focus:outline-none" type="file">
+                        </div>
+                        <div class="mt-[30px]">
+                            <Button class="bg-[#006B3F] p-3 rounded text-white w-[200px] font-semibold hover:bg-[#018951]" onclick="return confirm('Apakah Data telah diisi dengan benar?')">Simpan & Kirim</Button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -108,4 +174,20 @@
         <embed class="w-[100%] h-[100%] min-h-[800px] desktop:min-h-[1000px] rounded-md" src="../assets/arsip/{{$disposisiSuratKeluar -> lampiran_3}}" {{$lampiran_3}}>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#catatan_disposisi_surat_keluar').summernote({
+            placeholder: 'Catatan...',
+            tabsize:2,
+            height:300,
+            toolbar: [
+                ['font', ['bold', 'underline', 'strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['paragraph']],
+                ['table', ['table']],
+            ],
+        });
+    });
+</script>
 @endsection

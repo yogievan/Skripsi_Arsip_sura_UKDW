@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="my-2">
                                     <label class="font-semibold">Penerima Surat</label>
-                                    <input name="penerima" type="email" value="{{$suratMasuk->penerima}}" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500">
+                                    <input name="penerima" type="email" value="{{$suratMasuk->penerima}}" class="block bg-white rounded w-full outline-none p-2 font-normal focus:ring-green-500 focus:border-green-500" required>
                                 </div>
                                 <div class="my-2">
                                     <textarea id="catatan_disposisi_surat_masuk" name="catatan" class="block bg-white w-full rounded font-normal focus:ring-green-500 focus:border-green-500"></textarea>
