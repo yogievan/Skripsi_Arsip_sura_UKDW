@@ -467,7 +467,7 @@ class SekretariatController extends Controller
             'lampiran_1' => $request -> lampiran_1,
             'lampiran_2' => $request -> lampiran_2,
             'lampiran_3' => $request -> lampiran_3,
-            'status_Disposisi' => $status_disposisi,
+            'status_disposisi' => $status_disposisi,
         ]);
         Alert::toast('Surat Berhasil Disposisi','success');
         return Redirect::back();
@@ -604,6 +604,19 @@ class SekretariatController extends Controller
         $disposisiSuratKeluar -> save();
         Alert::toast('Surat Berhasil Ditindak Lanjut!','success');
         return Redirect::back(); 
+    }
+
+    public function HapusArsipDisposisiSuratMasuk($id){
+        $disposisiSuratMasuk = disposisiSuratMasuk::find($id);
+        $disposisiSuratMasuk -> delete();
+        Alert::toast('Data Arsip Disposisi Surat Masuk Berhasil dihapus!','success');
+        return Redirect::back();
+    }
+    public function HapusArsipDisposisiSuratKeluar($id){
+        $disposisiSuratKeluar = disposisiSuratKeluar::find($id);
+        $disposisiSuratKeluar -> delete();
+        Alert::toast('Data Arsip Disposisi Surat Keluar Berhasil dihapus!','success');
+        return Redirect::back();
     }
 
     public function FilterSuratMasuk(Request $request){

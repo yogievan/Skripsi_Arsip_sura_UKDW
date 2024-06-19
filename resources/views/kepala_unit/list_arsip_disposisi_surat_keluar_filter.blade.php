@@ -83,6 +83,11 @@
                             <a href="/KepalaUnit/DetailArsipDisposisiSuratKeluar-{{ $item -> id }}-{{$item -> id_surat_keluar}}">
                                 <button class="w-full bg-blue-700 p-3 rounded text-white hover:bg-blue-600">Detail Surat Disposisi</button>
                             </a>
+                            <a href="/KepalaUnit/HapusArsipDisposisiSuratKeluar-{{ $item -> id }}">
+                                <button class="w-[50px] bg-red-600 p-3 rounded text-white hover:bg-red-500" onclick="return confirm('Apakah Surat akan dihapus?')">
+                                    <i class="fas fa-trash-alt text-white"></i>
+                                </button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach

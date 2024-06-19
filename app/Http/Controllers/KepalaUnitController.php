@@ -673,6 +673,19 @@ class KepalaUnitController extends Controller
         return Redirect::back(); 
     }
 
+    public function HapusArsipDisposisiSuratMasuk($id){
+        $disposisiSuratMasuk = disposisiSuratMasuk::find($id);
+        $disposisiSuratMasuk -> delete();
+        Alert::toast('Data Arsip Disposisi Surat Masuk Berhasil dihapus!','success');
+        return Redirect::back();
+    }
+    public function HapusArsipDisposisiSuratKeluar($id){
+        $disposisiSuratKeluar = disposisiSuratKeluar::find($id);
+        $disposisiSuratKeluar -> delete();
+        Alert::toast('Data Arsip Disposisi Surat Keluar Berhasil dihapus!','success');
+        return Redirect::back();
+    }
+
     public function FilterSuratMasuk(Request $request){
         $filter_surat_masuk = $request->filter_surat_masuk;
         $penerima = Auth::user()->email;
